@@ -1,10 +1,339 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Qadir | UI/UX & AI Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UI/UX Designer Portfolio</title>
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      padding: 40px 80px;
+      background: linear-gradient(135deg, #0f172a, #020617);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 24px;
+      color: #22d3ee;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #22d3ee;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* MOBILE MENU */
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .theme-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    /* HERO CONTENT */
+    .hero-content {
+      margin-top: 120px;
+      max-width: 600px;
+      animation: fadeUp 1s ease;
+    }
+
+    .hero-content h1 {
+      font-size: 56px;
+      color: white;
+    }
+
+    .hero-content p {
+      margin: 20px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #6366f1;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #4f46e5;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px;
+      animation: fadeUp 1s ease;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    /* PROJECTS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #020617;
+      padding: 30px;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    /* SKILLS */
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .skill-list span {
+      background: #020617;
+      padding: 10px 20px;
+      border-radius: 20px;
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #9ca3af;
+    }
+
+    /* ANIMATION */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #020617;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 15px;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .hero {
+        padding: 30px 20px;
+        text-align: center;
+      }
+
+      .hero-content {
+        margin-top: 80px;
+        max-width: 100%;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      section {
+        padding: 60px 20px;
+      }
+    }
+
+    /* LIGHT MODE */
+    body.light {
+      background: #f8fafc;
+      color: #020617;
+    }
+
+    body.light .hero {
+      background: linear-gradient(135deg, #f8fafc, #e5e7eb);
+    }
+
+    body.light nav a,
+    body.light .logo {
+      color: #020617;
+    }
+
+    body.light .card,
+    body.light .skill-list span {
+      background: white;
+    }
+
+    body.light footer {
+      color: #475569;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, I’m Qadir</h1>
-  <p>UI/UX Designer & AI Enthusiast</p>
+
+<header class="hero">
+  <nav>
+    <h2 class="logo">YourName</h2>
+
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <ul id="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button id="theme-toggle" class="theme-btn">🌙</button></li>
+    </ul>
+  </nav>
+
+  <div class="hero-content">
+    <h1>UI/UX Designer</h1>
+    <p>Designing user-centered digital experiences with 3+ years of experience</p>
+    <a href="#work" class="btn">View My Work</a>
+  </div>
+</header>
+
+<section id="work">
+  <h2>Selected Work</h2>
+  <div class="projects">
+    <div class="card">
+      <h3>E-Commerce App</h3>
+      <p>User Research • Wireframes • UI Design</p>
+    </div>
+    <div class="card">
+      <h3>Finance Dashboard</h3>
+      <p>UX Strategy • Prototyping • Design System</p>
+    </div>
+    <div class="card">
+      <h3>Healthcare Website</h3>
+      <p>Accessibility • UX Audit • Redesign</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I am a UI/UX designer with 3 years of experience focused on creating clean,
+    usable and meaningful digital products.
+  </p>
+</section>
+
+<section class="skills">
+  <h2>Skills</h2>
+  <div class="skill-list">
+    <span>Figma</span>
+    <span>UX Research</span>
+    <span>Wireframing</span>
+    <span>Prototyping</span>
+    <span>Design Systems</span>
+    <span>HTML & CSS</span>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Let’s Work Together</h2>
+  <p>Have a project or opportunity? Let’s connect.</p>
+  <a href="mailto:your@email.com" class="btn">Contact Me</a>
+</section>
+
+<footer>
+  <p>© 2026 YourName. All rights reserved.</p>
+</footer>
+
+<!-- JS -->
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+  const themeToggle = document.getElementById("theme-toggle");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("light");
+    themeToggle.textContent =
+      document.body.classList.contains("light") ? "☀️" : "🌙";
+  });
+</script>
+
 </body>
 </html>
