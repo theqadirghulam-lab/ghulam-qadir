@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UI/UX Designer Portfolio</title>
+<title>Ghulam Qadir | UI/UX Designer</title>
 
-<!-- GOOGLE FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -15,26 +14,51 @@
   box-sizing:border-box;
   font-family:'Inter',sans-serif;
 }
-
 html{scroll-behavior:smooth;}
 
 body{
-  background:#0f172a;
+  background:radial-gradient(circle at top,#020617,#000);
   color:#e5e7eb;
 }
 
-/* HERO */
+/* ================= LOADER ================= */
+#loader{
+  position:fixed;
+  inset:0;
+  background:#020617;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+.loader-circle{
+  width:70px;
+  height:70px;
+  border:6px solid rgba(255,255,255,.1);
+  border-top-color:#22d3ee;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ================= HERO ================= */
 .hero{
   min-height:100vh;
   padding:40px 80px;
-  background:linear-gradient(135deg,#0f172a,#020617);
+  background:
+    radial-gradient(circle at 20% 20%,rgba(99,102,241,.15),transparent 40%),
+    radial-gradient(circle at 80% 0%,rgba(34,211,238,.15),transparent 40%);
 }
 
 nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  position:relative;
+  padding:16px 28px;
+  border-radius:20px;
+  background:rgba(2,6,23,.55);
+  backdrop-filter:blur(20px);
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
 .logo{
@@ -48,13 +72,11 @@ nav ul{
   gap:30px;
   list-style:none;
 }
-
 nav a{
   color:#e5e7eb;
   text-decoration:none;
   position:relative;
 }
-
 nav a::after{
   content:"";
   position:absolute;
@@ -65,7 +87,6 @@ nav a::after{
   background:#22d3ee;
   transition:.3s;
 }
-
 nav a:hover::after{width:100%;}
 
 .menu-toggle{
@@ -74,53 +95,50 @@ nav a:hover::after{width:100%;}
   cursor:pointer;
 }
 
-.theme-btn{
-  background:none;
-  border:none;
-  cursor:pointer;
-  font-size:20px;
-  color:white;
-}
-
 /* HERO CONTENT */
 .hero-content{
   margin-top:120px;
-  max-width:600px;
+  max-width:650px;
   animation:fadeUp 1s ease;
 }
-
 .hero-content h1{
   font-size:56px;
+  line-height:1.1;
   color:white;
 }
-
+.grad{
+  background:linear-gradient(90deg,#6366f1,#22d3ee);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
 .hero-content p{
-  margin:20px 0;
-  line-height:1.6;
+  margin:20px 0 30px;
+  color:#cbd5f5;
 }
 
+/* BUTTON */
 .btn{
-  display:inline-block;
-  padding:14px 28px;
-  background:#6366f1;
+  padding:16px 34px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#6366f1,#22d3ee);
   color:white;
-  border-radius:30px;
+  font-weight:600;
   text-decoration:none;
-  transition:.3s;
+  box-shadow:0 10px 30px rgba(99,102,241,.4);
+  transition:.4s ease;
+}
+.btn:hover{
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 20px 50px rgba(34,211,238,.45);
+}
+.btn.small{
+  padding:10px 18px;
+  font-size:14px;
 }
 
-.btn:hover{background:#4f46e5;}
-.btn.small{padding:10px 18px;font-size:14px;}
-
-/* SECTIONS */
-section{
-  padding:80px;
-}
-
-h2{
-  font-size:36px;
-  margin-bottom:40px;
-}
+/* ================= SECTIONS ================= */
+section{padding:80px;}
+h2{font-size:36px;margin-bottom:40px;}
 
 /* PROJECTS */
 .projects{
@@ -128,42 +146,57 @@ h2{
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
 }
-
 .project-card{
   position:relative;
-  border-radius:20px;
+  border-radius:24px;
+  background:rgba(2,6,23,.7);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.06);
   overflow:hidden;
-  background:#020617;
-  box-shadow:0 20px 40px rgba(0,0,0,.35);
   transition:.4s ease;
 }
-
+.project-card:hover{transform:translateY(-14px);}
 .project-card img{
   width:100%;
   height:280px;
   object-fit:cover;
-  transition:.5s ease;
+  transition:.5s;
 }
-
 .project-card:hover img{transform:scale(1.1);}
-.project-card:hover{transform:translateY(-10px);}
 
 .overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(to top,rgba(2,6,23,.95),rgba(2,6,23,.4));
+  background:linear-gradient(to top,rgba(2,6,23,.95),rgba(2,6,23,.6));
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
   padding:30px;
   opacity:0;
-  transition:.4s ease;
+  transition:.4s;
 }
-
 .project-card:hover .overlay{opacity:1;}
 
-.overlay h3{color:#fff;margin-bottom:6px;}
-.overlay p{font-size:14px;color:#cbd5f5;margin-bottom:14px;}
+.img-upload{
+  position:absolute;
+  top:20px;
+  right:20px;
+  opacity:0;
+  cursor:pointer;
+  z-index:10;
+}
+.project-card::after{
+  content:"Change Image";
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:12px;
+  padding:6px 12px;
+  border-radius:20px;
+  background:rgba(0,0,0,.6);
+  color:white;
+  pointer-events:none;
+}
 
 /* SKILLS */
 .skill-list{
@@ -171,38 +204,39 @@ h2{
   flex-wrap:wrap;
   gap:15px;
 }
-
 .skill-list span{
-  background:#020617;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
   padding:10px 20px;
   border-radius:20px;
+  transition:.3s;
+}
+.skill-list span:hover{
+  background:linear-gradient(135deg,#6366f1,#22d3ee);
+  transform:translateY(-4px);
 }
 
-/* CONTACT */
-.contact{text-align:center;}
-
-footer{
-  text-align:center;
-  padding:30px;
-  font-size:14px;
-  color:#9ca3af;
-}
-
-/* SCROLL ANIMATION */
+/* REVEAL */
 .reveal{
   opacity:0;
-  transform:translateY(40px);
-  transition:.8s ease;
+  transform:translateY(60px);
+  transition:1s cubic-bezier(.16,1,.3,1);
 }
 .reveal.active{
   opacity:1;
-  transform:translateY(0);
+  transform:none;
 }
 
-/* ANIMATION */
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#9ca3af;
+}
+
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(30px);}
-  to{opacity:1;transform:translateY(0);}
+  to{opacity:1;transform:none;}
 }
 
 /* RESPONSIVE */
@@ -211,7 +245,7 @@ footer{
   nav ul{
     display:none;
     position:absolute;
-    top:70px;
+    top:80px;
     right:0;
     background:#020617;
     flex-direction:column;
@@ -223,24 +257,15 @@ footer{
   .hero-content h1{font-size:36px;}
   section{padding:60px 20px;}
 }
-
-/* LIGHT MODE */
-body.light{
-  background:#f8fafc;
-  color:#020617;
-}
-body.light .hero{
-  background:linear-gradient(135deg,#f8fafc,#e5e7eb);
-}
-body.light nav a,
-body.light .logo{color:#020617;}
-body.light .project-card,
-body.light .skill-list span{background:white;}
-body.light footer{color:#475569;}
 </style>
 </head>
 
 <body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-circle"></div>
+</div>
 
 <header class="hero">
 <nav>
@@ -250,13 +275,12 @@ body.light footer{color:#475569;}
 <li><a href="#work">Work</a></li>
 <li><a href="#about">About</a></li>
 <li><a href="#contact">Contact</a></li>
-<li><button id="theme-toggle" class="theme-btn">🌙</button></li>
 </ul>
 </nav>
 
 <div class="hero-content">
-<h1>UI/UX Designer</h1>
-<p>Designing modern, user-centered digital experiences</p>
+<h1>Crafting <span class="grad">Premium</span><br>Digital Experiences</h1>
+<p>UI/UX Designer focused on modern, user-centered products.</p>
 <a href="#work" class="btn">View My Work</a>
 </div>
 </header>
@@ -266,29 +290,29 @@ body.light footer{color:#475569;}
 <div class="projects">
 
 <div class="project-card">
-<img src="images/project1.jpg">
+<img id="preview1" src="https://picsum.photos/600/400?1">
+<input type="file" class="img-upload" onchange="previewImage(event,'preview1')">
 <div class="overlay">
 <h3>E-Commerce App</h3>
 <p>UI Design • UX Research</p>
-<a href="#" class="btn small">View Project</a>
 </div>
 </div>
 
 <div class="project-card">
-<img src="images/project2.jpg">
+<img id="preview2" src="https://picsum.photos/600/400?2">
+<input type="file" class="img-upload" onchange="previewImage(event,'preview2')">
 <div class="overlay">
 <h3>Finance Dashboard</h3>
 <p>UX Strategy • Prototyping</p>
-<a href="#" class="btn small">View Project</a>
 </div>
 </div>
 
 <div class="project-card">
-<img src="images/project3.jpg">
+<img id="preview3" src="https://picsum.photos/600/400?3">
+<input type="file" class="img-upload" onchange="previewImage(event,'preview3')">
 <div class="overlay">
-<h3>Healthcare Website</h3>
+<h3>Healthcare Platform</h3>
 <p>UX Audit • Redesign</p>
-<a href="#" class="btn small">View Project</a>
 </div>
 </div>
 
@@ -297,10 +321,10 @@ body.light footer{color:#475569;}
 
 <section id="about" class="reveal">
 <h2>About Me</h2>
-<p>I am a UI/UX designer focused on building clean, modern and meaningful digital products.</p>
+<p>I design clean, scalable and business-driven digital experiences.</p>
 </section>
 
-<section class="skills reveal">
+<section class="reveal">
 <h2>Skills</h2>
 <div class="skill-list">
 <span>Figma</span>
@@ -312,37 +336,41 @@ body.light footer{color:#475569;}
 </div>
 </section>
 
-<section id="contact" class="contact reveal">
+<section id="contact" class="reveal" style="text-align:center">
 <h2>Let’s Work Together</h2>
 <p>Have a project or opportunity? Let’s connect.</p>
 <a href="mailto:your@email.com" class="btn">Contact Me</a>
 </section>
 
 <footer>
-<p>© 2026 YourName. All rights reserved.</p>
+<p>Designed & Built by <strong>Ghulam Qadir</strong></p>
 </footer>
 
 <script>
 const menuToggle=document.getElementById("menu-toggle");
 const navLinks=document.getElementById("nav-links");
-const themeToggle=document.getElementById("theme-toggle");
-
 menuToggle.onclick=()=>navLinks.classList.toggle("active");
 
-themeToggle.onclick=()=>{
- document.body.classList.toggle("light");
- themeToggle.textContent=document.body.classList.contains("light")?"☀️":"🌙";
-};
+// loader
+window.addEventListener("load",()=>{
+  document.getElementById("loader").style.display="none";
+});
 
-// Scroll reveal
+// scroll reveal
 const reveals=document.querySelectorAll(".reveal");
 window.addEventListener("scroll",()=>{
- reveals.forEach(el=>{
-  if(el.getBoundingClientRect().top<window.innerHeight-100){
-    el.classList.add("active");
-  }
- });
+  reveals.forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight-100){
+      el.classList.add("active");
+    }
+  });
 });
+
+// image preview
+function previewImage(event,id){
+  document.getElementById(id).src =
+    URL.createObjectURL(event.target.files[0]);
+}
 </script>
 
 </body>
