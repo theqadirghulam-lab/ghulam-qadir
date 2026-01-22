@@ -2,320 +2,286 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>UI/UX Designer Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UI/UX Designer Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --primary:#6c63ff;
-  --dark:#0f172a;
-  --light:#f8fafc;
-}
-
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: "Poppins", sans-serif;
+  font-family:'Inter',sans-serif;
 }
-
-html{
-  scroll-behavior:smooth;
-}
-
+html{scroll-behavior:smooth;}
 body{
-  background:#fff;
-  color:#111;
+  background:#0f172a;
+  color:#e5e7eb;
 }
 
-/* ================= NAV ================= */
+/* HERO */
+.hero{
+  min-height:100vh;
+  padding:40px 80px;
+  background:
+  linear-gradient(rgba(2,6,23,.85),rgba(2,6,23,.85)),
+  url("https://images.unsplash.com/photo-1559028012-481c04fa702d");
+  background-size:cover;
+  background-position:center;
+}
+
+/* NAV */
 nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:#fff;
-  padding:15px 40px;
   display:flex;
   justify-content:center;
-  box-shadow:0 4px 20px rgba(0,0,0,.05);
-  z-index:1000;
+  align-items:center;
+  position:relative;
 }
-
+.logo{
+  font-size:24px;
+  font-weight:700;
+  color:#22d3ee;
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+}
 nav ul{
   display:flex;
   gap:30px;
-  align-items:center;
-}
-
-nav ul li{
   list-style:none;
 }
-
-nav ul li a{
+nav a{
+  color:#e5e7eb;
   text-decoration:none;
-  color:#111;
-  font-weight:500;
 }
-
-.logo{
-  font-size:22px;
-  font-weight:700;
-  color:var(--primary);
-}
-
-/* ================= HEADER ================= */
-header{
-  height:100vh;
-  background:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("https://images.unsplash.com/photo-1559028012-481c04fa702d");
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:#fff;
-}
-
-header h1{
-  font-size:3rem;
-}
-
-header p{
-  margin-top:10px;
-  opacity:.9;
-}
-
-/* ================= SECTION ================= */
-section{
-  padding:100px 60px;
-}
-
-h2{
-  text-align:center;
-  margin-bottom:50px;
-  font-size:2.2rem;
-}
-
-/* ================= UPLOAD ================= */
-.upload-box{
-  max-width:400px;
-  margin:auto;
-  border:2px dashed #ccc;
-  padding:30px;
-  text-align:center;
-  border-radius:12px;
-}
-
-.upload-box input{
+.menu-toggle{
   display:none;
-}
-
-.upload-box label{
+  font-size:28px;
   cursor:pointer;
-  color:var(--primary);
+}
+.theme-btn{
+  background:none;
+  border:none;
+  color:white;
+  font-size:20px;
+  cursor:pointer;
 }
 
-.preview{
-  margin-top:20px;
+/* HERO CONTENT */
+.hero-content{
+  margin-top:140px;
+  max-width:600px;
+}
+.hero-content h1{
+  font-size:56px;
+  color:white;
+}
+.hero-content p{
+  margin:20px 0;
+}
+.btn{
+  display:inline-block;
+  padding:14px 28px;
+  background:#6366f1;
+  color:white;
+  border-radius:30px;
+  text-decoration:none;
 }
 
-.preview img{
-  width:100%;
-  border-radius:10px;
-}
+/* SECTION */
+section{padding:80px;}
+h2{font-size:36px;margin-bottom:40px;}
 
-.preview p{
-  color:#555;
-}
-
-/* ================= PROJECTS ================= */
+/* PROJECTS */
 .projects{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
 }
-
-.project{
-  position:relative;
+.project-card{
+  border-radius:20px;
+  overflow:hidden;
+  background:#020617;
   cursor:pointer;
 }
-
-.project img{
+.project-card img{
   width:100%;
-  border-radius:14px;
-  transition:.3s;
+  height:260px;
+  object-fit:cover;
 }
+.desc{display:none}
 
-.project:hover img{
-  transform:scale(1.05);
+/* UPLOAD */
+.upload-box{
+  margin-top:20px;
 }
-
-/* ================= MODAL ================= */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.8);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:2000;
-}
-
-.modal-content{
-  background:#fff;
-  padding:30px;
-  border-radius:14px;
-  max-width:800px;
-  width:90%;
-  animation:scale .4s ease;
-}
-
-@keyframes scale{
-  from{transform:scale(.7);opacity:0}
-  to{transform:scale(1);opacity:1}
-}
-
-.modal img{
-  width:100%;
-  border-radius:10px;
-}
-
-.modal p{
-  margin-top:15px;
-}
-
-.close{
-  position:absolute;
-  top:20px;
-  right:30px;
-  color:#fff;
-  font-size:30px;
-  cursor:pointer;
-}
-
-/* ================= LOADER ================= */
 .loader{
   width:40px;
   height:40px;
   border:4px solid #ddd;
-  border-top:4px solid var(--primary);
+  border-top:4px solid #6366f1;
   border-radius:50%;
   animation:spin 1s linear infinite;
-  margin:20px auto;
   display:none;
+  margin:10px auto;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+.modal-content{
+  background:#020617;
+  padding:30px;
+  max-width:800px;
+}
+.modal img{width:100%;border-radius:10px;}
+.modal span{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:30px;
+  cursor:pointer;
 }
 
-@keyframes spin{
-  to{transform:rotate(360deg)}
-}
-
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
-  background:var(--dark);
-  color:#fff;
-  padding:50px;
   text-align:center;
+  padding:40px;
+  color:#9ca3af;
 }
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .menu-toggle{display:block;}
+  nav ul{display:none;}
+  .hero{padding:30px 20px;text-align:center;}
+  .hero-content h1{font-size:36px;}
+}
+
+/* LIGHT MODE */
+body.light{
+  background:#f8fafc;
+  color:#020617;
+}
+body.light .project-card{background:white}
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
+<header class="hero">
 <nav>
-  <ul>
-    <li class="logo">Qadir UI/UX</li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#upload">Upload</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+<div class="menu-toggle" id="menu-toggle">☰</div>
+<h2 class="logo">Ghulam Qadir</h2>
+<ul id="nav-links">
+<li><a href="#work">Work</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><button id="theme-toggle" class="theme-btn">🌙</button></li>
+</ul>
 </nav>
 
-<!-- HEADER -->
-<header>
-  <div>
-    <h1>UI/UX Designer</h1>
-    <p>Modern • Clean • User Focused</p>
-  </div>
+<div class="hero-content">
+<h1>UI/UX Designer</h1>
+<p>Designing modern user-centered experiences</p>
+<a href="#work" class="btn">View Work</a>
+</div>
 </header>
 
-<!-- UPLOAD -->
-<section id="upload">
-  <h2>Upload Project</h2>
-  <div class="upload-box">
-    <label for="file">Upload Image / PDF</label>
-    <input type="file" id="file" accept="image/*,.pdf">
-    <div class="loader" id="loader"></div>
-    <div class="preview" id="preview">
-      <img src="https://via.placeholder.com/400x250?text=Default+Image">
-    </div>
-  </div>
-</section>
+<section id="work">
+<h2>Projects</h2>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <h2>My Projects</h2>
-  <div class="projects">
-    <div class="project" onclick="openModal(this)">
-      <img src="https://via.placeholder.com/600x400">
-      <p hidden>Modern Dashboard UI Design</p>
-    </div>
-  </div>
-</section>
+<div class="projects">
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <div class="modal-content">
-    <img id="modalImg">
-    <p id="modalText"></p>
-  </div>
+<div class="project-card" onclick="openProject(this)">
+<img src="https://images.unsplash.com/photo-1559028012-481c04fa702d" id="defaultImg">
+<p class="desc">E-commerce mobile app UI/UX with research and prototyping.</p>
 </div>
 
-<!-- FOOTER -->
+<div class="project-card" onclick="openProject(this)">
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
+<p class="desc">Finance dashboard UX strategy and usability testing.</p>
+</div>
+
+</div>
+
+<div class="upload-box">
+<input type="file" id="fileUpload" accept="image/*,.pdf">
+<div class="loader" id="loader"></div>
+<div id="preview"></div>
+</div>
+</section>
+
+<section id="about">
+<h2>About Me</h2>
+<p>I am a UI/UX designer with focus on modern, clean and functional design.</p>
+</section>
+
 <footer id="contact">
-  <h3>Contact Me</h3>
-  <p>Email: qadir@email.com</p>
-  <p>WhatsApp: +92 300 0000000</p>
-  <p>LinkedIn / Behance / GitHub</p>
+<h2>Contact</h2>
+<p>Email: your@email.com</p>
+<p>LinkedIn: linkedin.com/in/yourname</p>
+<p>© 2026 Ghulam Qadir</p>
 </footer>
 
+<!-- MODAL -->
+<div class="modal" id="projectModal">
+<span onclick="closeProject()">×</span>
+<div class="modal-content">
+<img id="modalImg">
+<p id="modalDesc"></p>
+</div>
+</div>
+
 <script>
-const fileInput = document.getElementById("file");
-const preview = document.getElementById("preview");
-const loader = document.getElementById("loader");
+/* MENU */
+menu-toggle.onclick=()=>nav-links.classList.toggle("active");
 
-fileInput.addEventListener("change", ()=>{
-  const file = fileInput.files[0];
-  if(!file) return;
+/* THEME */
+theme-toggle.onclick=()=>{
+ document.body.classList.toggle("light");
+ theme-toggle.textContent=
+ document.body.classList.contains("light")?"☀️":"🌙";
+};
 
-  loader.style.display="block";
-  preview.innerHTML="";
+/* DEFAULT IMAGE */
+window.onload=()=>{
+ document.getElementById("defaultImg").src=
+ "https://images.unsplash.com/photo-1559028012-481c04fa702d";
+};
 
-  setTimeout(()=>{
-    loader.style.display="none";
+/* UPLOAD PREVIEW */
+fileUpload.onchange=()=>{
+ const file=fileUpload.files[0];
+ if(!file) return;
+ loader.style.display="block";
+ preview.innerHTML="";
+ setTimeout(()=>{
+  loader.style.display="none";
+  if(file.type.includes("image")){
+    preview.innerHTML=`<img src="${URL.createObjectURL(file)}" width="100%">`;
+  }else{
+    preview.innerHTML="<p>📄 PDF uploaded successfully</p>";
+  }
+ },800);
+};
 
-    if(file.type.includes("image")){
-      const img = document.createElement("img");
-      img.src = URL.createObjectURL(file);
-      preview.appendChild(img);
-    }else{
-      preview.innerHTML="<p>PDF Uploaded Successfully</p>";
-    }
-  },1000);
-});
-
-function openModal(el){
-  document.getElementById("modal").style.display="flex";
-  document.getElementById("modalImg").src = el.querySelector("img").src;
-  document.getElementById("modalText").innerText =
-    el.querySelector("p").innerText;
+/* PROJECT MODAL */
+function openProject(el){
+ projectModal.style.display="flex";
+ modalImg.src=el.querySelector("img").src;
+ modalDesc.innerText=el.querySelector(".desc").innerText;
 }
-
-function closeModal(){
-  document.getElementById("modal").style.display="none";
+function closeProject(){
+ projectModal.style.display="none";
 }
 </script>
 
