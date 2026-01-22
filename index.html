@@ -15,13 +15,12 @@
   font-family:'Inter',sans-serif;
 }
 html{scroll-behavior:smooth;}
-
 body{
   background:#020617;
   color:#e5e7eb;
 }
 
-/* ================= LOADER ================= */
+/* LOADER */
 #loader{
   position:fixed;
   inset:0;
@@ -41,7 +40,7 @@ body{
 }
 @keyframes spin{to{transform:rotate(360deg);}}
 
-/* ================= HERO ================= */
+/* HERO */
 .hero{
   min-height:100vh;
   padding:40px 80px;
@@ -54,7 +53,7 @@ body{
   background-attachment:fixed;
 }
 
-/* ================= NAV ================= */
+/* NAV */
 nav{
   display:flex;
   justify-content:space-between;
@@ -65,25 +64,21 @@ nav{
   backdrop-filter:blur(20px);
   box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
-
 .logo{
   font-size:24px;
   font-weight:700;
   color:#22d3ee;
 }
-
 nav ul{
   display:flex;
   gap:30px;
   list-style:none;
 }
-
 nav a{
   color:#e5e7eb;
   text-decoration:none;
   position:relative;
 }
-
 nav a::after{
   content:"";
   position:absolute;
@@ -94,41 +89,36 @@ nav a::after{
   background:#22d3ee;
   transition:.3s;
 }
-
 nav a:hover::after{width:100%;}
-
 .menu-toggle{
   display:none;
   font-size:28px;
   cursor:pointer;
 }
 
-/* ================= HERO CONTENT ================= */
+/* HERO CONTENT */
 .hero-content{
   margin-top:140px;
   max-width:650px;
   animation:fadeUp 1s ease;
 }
-
 .hero-content h1{
   font-size:56px;
   line-height:1.1;
   color:white;
 }
-
 .grad{
   background:linear-gradient(90deg,#6366f1,#22d3ee);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
-
 .hero-content p{
   margin:20px 0 30px;
   color:#cbd5f5;
   font-size:18px;
 }
 
-/* ================= BUTTON ================= */
+/* BUTTON */
 .btn{
   padding:16px 34px;
   border-radius:999px;
@@ -148,17 +138,16 @@ nav a:hover::after{width:100%;}
   font-size:14px;
 }
 
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 section{padding:80px;}
 h2{font-size:36px;margin-bottom:40px;}
 
-/* ================= PROJECTS ================= */
+/* PROJECTS */
 .projects{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
 }
-
 .project-card{
   position:relative;
   border-radius:24px;
@@ -169,7 +158,6 @@ h2{font-size:36px;margin-bottom:40px;}
   transition:.4s ease;
   cursor:pointer;
 }
-
 .project-card:hover{transform:translateY(-14px);}
 .project-card img{
   width:100%;
@@ -178,7 +166,6 @@ h2{font-size:36px;margin-bottom:40px;}
   transition:.5s;
 }
 .project-card:hover img{transform:scale(1.1);}
-
 .overlay{
   position:absolute;
   inset:0;
@@ -191,7 +178,6 @@ h2{font-size:36px;margin-bottom:40px;}
   transition:.4s;
 }
 .project-card:hover .overlay{opacity:1;}
-
 .img-upload{
   position:absolute;
   top:20px;
@@ -213,7 +199,7 @@ h2{font-size:36px;margin-bottom:40px;}
   pointer-events:none;
 }
 
-/* ================= SKILLS ================= */
+/* SKILLS */
 .skill-list{
   display:flex;
   flex-wrap:wrap;
@@ -231,7 +217,7 @@ h2{font-size:36px;margin-bottom:40px;}
   transform:translateY(-4px);
 }
 
-/* ================= REVEAL ================= */
+/* REVEAL */
 .reveal{
   opacity:0;
   transform:translateY(60px);
@@ -242,14 +228,14 @@ h2{font-size:36px;margin-bottom:40px;}
   transform:none;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
   text-align:center;
   padding:30px;
   color:#9ca3af;
 }
 
-/* ================= MODAL ================= */
+/* MODAL */
 .modal{
   position:fixed;
   inset:0;
@@ -284,13 +270,13 @@ footer{
   cursor:pointer;
 }
 
-/* ================= ANIMATION ================= */
+/* ANIMATION */
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(30px);}
   to{opacity:1;transform:none;}
 }
 
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE */
 @media(max-width:768px){
   .menu-toggle{display:block;}
   nav ul{
@@ -429,10 +415,10 @@ window.addEventListener("scroll",()=>{
   });
 });
 
-// ================= IMAGE UPLOAD & PERSISTENCE =================
+// ================= IMAGE UPLOAD & PERSISTENCE (BASE64) =================
 const projectCards = document.querySelectorAll(".project-card");
 
-// Load saved images from localStorage
+// load saved images
 projectCards.forEach(card=>{
   const img = card.querySelector("img");
   const saved = localStorage.getItem(img.id);
@@ -442,9 +428,13 @@ projectCards.forEach(card=>{
 function changeImage(event,imgId){
   const file = event.target.files[0];
   if(file){
-    const imgURL = URL.createObjectURL(file);
-    document.getElementById(imgId).src = imgURL;
-    localStorage.setItem(imgId,imgURL);
+    const reader = new FileReader();
+    reader.onload = function(e){
+      const base64 = e.target.result;
+      document.getElementById(imgId).src = base64;
+      localStorage.setItem(imgId, base64);
+    }
+    reader.readAsDataURL(file);
   }
 }
 
@@ -455,8 +445,7 @@ const modalDesc = document.getElementById("modalDesc");
 
 projectCards.forEach(card=>{
   card.addEventListener("click",(e)=>{
-    // prevent modal if clicked on input
-    if(e.target.tagName === 'INPUT') return;
+    if(e.target.tagName==='INPUT') return; // prevent modal on input click
     modal.style.display="flex";
     const img = card.querySelector("img").src;
     const desc = card.dataset.desc;
@@ -466,11 +455,7 @@ projectCards.forEach(card=>{
 });
 
 function closeModal(){modal.style.display="none";}
-
-// close modal on outside click
-modal.addEventListener("click", (e)=>{
-  if(e.target === modal) closeModal();
-});
+modal.addEventListener("click", (e)=>{if(e.target===modal) closeModal();});
 </script>
 
 </body>
