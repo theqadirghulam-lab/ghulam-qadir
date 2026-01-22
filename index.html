@@ -60,11 +60,11 @@ body{
 
 /* ================= NAV ================= */
 
-  nav{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
+nav{
+  display: flex;
+  align-items: center;  /* Vertical center */
+  justify-content: space-between;
+  padding: 15px 40px;
 }
 /* nav{
   display:flex;
@@ -84,13 +84,11 @@ body{
   position : center;
 } */
 
-  .logo{
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:24px;
-  font-weight:700;
-  color:#22d3ee;
+.logo{
+  font-size: 24px;
+  font-weight: 700;
+  color: #22d3ee;
+  /* vertical centering handled by nav align-items:center */
 }
 
 nav ul{
