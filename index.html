@@ -17,7 +17,7 @@
 html{scroll-behavior:smooth;}
 
 body{
-  background:radial-gradient(circle at top,#020617,#000);
+  background:#020617;
   color:#e5e7eb;
 }
 
@@ -45,18 +45,27 @@ body{
 .hero{
   min-height:100vh;
   padding:40px 80px;
+  position:relative;
   background:
-    radial-gradient(circle at 20% 20%,rgba(99,102,241,.15),transparent 40%),
-    radial-gradient(circle at 80% 0%,rgba(34,211,238,.15),transparent 40%);
+    linear-gradient(
+      to right,
+      rgba(2,6,23,.92),
+      rgba(2,6,23,.75)
+    ),
+    url("https://images.unsplash.com/photo-1587440871875-191322ee64b0?auto=format&fit=crop&w=1600&q=80");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
 }
 
+/* ================= NAV ================= */
 nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:16px 28px;
   border-radius:20px;
-  background:rgba(2,6,23,.55);
+  background:rgba(2,6,23,.6);
   backdrop-filter:blur(20px);
   box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
@@ -95,9 +104,9 @@ nav a:hover::after{width:100%;}
   cursor:pointer;
 }
 
-/* HERO CONTENT */
+/* ================= HERO CONTENT ================= */
 .hero-content{
-  margin-top:120px;
+  margin-top:140px;
   max-width:650px;
   animation:fadeUp 1s ease;
 }
@@ -114,9 +123,10 @@ nav a:hover::after{width:100%;}
 .hero-content p{
   margin:20px 0 30px;
   color:#cbd5f5;
+  font-size:18px;
 }
 
-/* BUTTON */
+/* ================= BUTTON ================= */
 .btn{
   padding:16px 34px;
   border-radius:999px;
@@ -140,7 +150,7 @@ nav a:hover::after{width:100%;}
 section{padding:80px;}
 h2{font-size:36px;margin-bottom:40px;}
 
-/* PROJECTS */
+/* ================= PROJECTS ================= */
 .projects{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -198,7 +208,7 @@ h2{font-size:36px;margin-bottom:40px;}
   pointer-events:none;
 }
 
-/* SKILLS */
+/* ================= SKILLS ================= */
 .skill-list{
   display:flex;
   flex-wrap:wrap;
@@ -216,7 +226,7 @@ h2{font-size:36px;margin-bottom:40px;}
   transform:translateY(-4px);
 }
 
-/* REVEAL */
+/* ================= REVEAL ================= */
 .reveal{
   opacity:0;
   transform:translateY(60px);
@@ -227,19 +237,20 @@ h2{font-size:36px;margin-bottom:40px;}
   transform:none;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer{
   text-align:center;
   padding:30px;
   color:#9ca3af;
 }
 
+/* ================= ANIMATION ================= */
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(30px);}
   to{opacity:1;transform:none;}
 }
 
-/* RESPONSIVE */
+/* ================= RESPONSIVE ================= */
 @media(max-width:768px){
   .menu-toggle{display:block;}
   nav ul{
@@ -253,7 +264,11 @@ footer{
     border-radius:15px;
   }
   nav ul.active{display:flex;}
-  .hero{padding:30px 20px;text-align:center;}
+  .hero{
+    padding:30px 20px;
+    text-align:center;
+    background-attachment:scroll;
+  }
   .hero-content h1{font-size:36px;}
   section{padding:60px 20px;}
 }
@@ -279,8 +294,11 @@ footer{
 </nav>
 
 <div class="hero-content">
-<h1>Crafting <span class="grad">Premium</span><br>Digital Experiences</h1>
-<p>UI/UX Designer focused on modern, user-centered products.</p>
+<h1>
+Crafting <span class="grad">Premium</span><br>
+Digital Experiences
+</h1>
+<p>UI/UX Designer creating modern, user-centered and business-driven products.</p>
 <a href="#work" class="btn">View My Work</a>
 </div>
 </header>
@@ -321,7 +339,7 @@ footer{
 
 <section id="about" class="reveal">
 <h2>About Me</h2>
-<p>I design clean, scalable and business-driven digital experiences.</p>
+<p>I design clean, scalable and high-impact digital experiences with strong UX foundations.</p>
 </section>
 
 <section class="reveal">
