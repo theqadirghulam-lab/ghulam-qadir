@@ -3,243 +3,175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UI/UX Designer Portfolio</title>
+<title>Ghulam Qadir | UI/UX Designer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 html{scroll-behavior:smooth;}
-body{
-  background:#0f172a;
-  color:#e5e7eb;
-}
+body{background:#020617;color:#e5e7eb;}
+
+/* LOADER */
+#loader{position:fixed;inset:0;background:#020617;display:flex;align-items:center;justify-content:center;z-index:9999;}
+.loader-circle{width:70px;height:70px;border:6px solid rgba(255,255,255,.1);border-top-color:#22d3ee;border-radius:50%;animation:spin 1s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
 
 /* HERO */
-.hero{
-  min-height:100vh;
-  padding:40px 80px;
-  background:
-    linear-gradient(rgba(2,6,23,.85),rgba(2,6,23,.85)),
-    url("https://images.unsplash.com/photo-1559028012-481c04fa702d");
-  background-size:cover;
-  background-position:center;
-}
+.hero{min-height:100vh;padding:40px 80px;position:relative;background:linear-gradient(to right, rgba(2,6,23,.92), rgba(2,6,23,.75)), url("https://images.unsplash.com/photo-1587440871875-191322ee64b0?auto=format&fit=crop&w=1600&q=80");background-size:cover;background-position:center;background-attachment:fixed;}
 
 /* NAV */
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:relative;
-}
-.logo{
-  font-size:24px;
-  font-weight:700;
-  color:#22d3ee;
-}
-nav ul{
-  display:flex;
-  gap:30px;
-  list-style:none;
-}
-nav a{
-  color:#e5e7eb;
-  text-decoration:none;
-}
-.menu-toggle{
-  display:none;
-  font-size:28px;
-  cursor:pointer;
-}
-.theme-btn{
-  background:none;
-  border:none;
-  color:white;
-  font-size:20px;
-  cursor:pointer;
-}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;border-radius:20px;background:rgba(2,6,23,.6);backdrop-filter:blur(20px);box-shadow:0 10px 30px rgba(0,0,0,.4);}
+.logo{font-size:24px;font-weight:700;color:#22d3ee;}
+nav ul{display:flex;gap:30px;list-style:none;}
+nav a{color:#e5e7eb;text-decoration:none;position:relative;}
+nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:#22d3ee;transition:.3s;}
+nav a:hover::after{width:100%;}
+.menu-toggle{display:none;font-size:28px;cursor:pointer;}
 
 /* HERO CONTENT */
-.hero-content{
-  margin-top:140px;
-  max-width:600px;
-}
-.hero-content h1{
-  font-size:56px;
-  color:white;
-}
-.hero-content p{
-  margin:20px 0;
-}
-.btn{
-  display:inline-block;
-  padding:14px 28px;
-  background:#6366f1;
-  color:white;
-  border-radius:30px;
-  text-decoration:none;
-}
+.hero-content{margin-top:140px;max-width:650px;animation:fadeUp 1s ease;}
+.hero-content h1{font-size:56px;line-height:1.1;color:white;}
+.grad{background:linear-gradient(90deg,#6366f1,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-content p{margin:20px 0 30px;color:#cbd5f5;font-size:18px;}
 
-/* SECTION */
+/* BUTTON */
+.btn{padding:16px 34px;border-radius:999px;background:linear-gradient(135deg,#6366f1,#22d3ee);color:white;font-weight:600;text-decoration:none;box-shadow:0 10px 30px rgba(99,102,241,.4);transition:.4s ease;}
+.btn:hover{transform:translateY(-4px) scale(1.05);box-shadow:0 20px 50px rgba(34,211,238,.45);}
+.btn.small{padding:10px 18px;font-size:14px;}
+
+/* SECTIONS */
 section{padding:80px;}
 h2{font-size:36px;margin-bottom:40px;}
 
 /* PROJECTS */
-.projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-.project-card{
-  border-radius:20px;
-  overflow:hidden;
-  background:#020617;
-  cursor:pointer;
-  position:relative;
-}
-.project-card img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-}
-.project-card .desc{
-  display:none;
-}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
+.project-card{position:relative;border-radius:24px;background:rgba(2,6,23,.7);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.06);overflow:hidden;transition:.4s ease;cursor:pointer;}
+.project-card:hover{transform:translateY(-14px);}
+.project-card img{width:100%;height:280px;object-fit:cover;transition:.5s;}
+.project-card:hover img{transform:scale(1.1);}
+.overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(2,6,23,.95),rgba(2,6,23,.6));display:flex;flex-direction:column;justify-content:flex-end;padding:30px;opacity:0;transition:.4s;}
+.project-card:hover .overlay{opacity:1;}
 
-/* UPLOAD */
-.upload-box{
-  margin-top:40px;
-}
-.loader{
-  width:40px;
-  height:40px;
-  border:4px solid #ddd;
-  border-top:4px solid #6366f1;
-  border-radius:50%;
-  animation:spin 1s linear infinite;
-  display:none;
-  margin:10px auto;
-}
-@keyframes spin{to{transform:rotate(360deg)}}
+/* UPLOAD INPUT */
+.img-upload{position:absolute;top:20px;right:20px;opacity:0;cursor:pointer;z-index:10;}
+.project-card::after{content:"Change Image";position:absolute;top:20px;right:20px;font-size:12px;padding:6px 12px;border-radius:20px;background:rgba(0,0,0,.6);color:white;pointer-events:none;}
 
-/* MODAL */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.85);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:2000;
-}
-.modal-content{
-  background:#020617;
-  padding:20px;
-  max-width:800px;
-  width:90%;
-  border-radius:12px;
-}
-.modal img{
-  width:100%;
-  border-radius:10px;
-}
-.modal p{
-  margin-top:10px;
-  color:#fff;
-}
-.modal span{
-  position:absolute;
-  top:10px;
-  right:20px;
-  font-size:30px;
-  color:white;
-  cursor:pointer;
-}
+/* SKILLS */
+.skill-list{display:flex;flex-wrap:wrap;gap:15px;}
+.skill-list span{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:10px 20px;border-radius:20px;transition:.3s;}
+.skill-list span:hover{background:linear-gradient(135deg,#6366f1,#22d3ee);transform:translateY(-4px);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(60px);transition:1s cubic-bezier(.16,1,.3,1);}
+.reveal.active{opacity:1;transform:none;}
 
 /* FOOTER */
-footer{
-  text-align:center;
-  padding:40px;
-  color:#9ca3af;
-}
+footer{text-align:center;padding:30px;color:#9ca3af;}
+
+/* ANIMATION */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:none;}}
+
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;justify-content:center;align-items:center;z-index:2000;}
+.modal-content{background:#020617;padding:20px;max-width:800px;width:90%;border-radius:12px;}
+.modal-content img{width:100%;border-radius:10px;}
+.modal-content p{margin-top:10px;color:#fff;}
+.modal span{position:absolute;top:10px;right:20px;font-size:30px;color:white;cursor:pointer;}
 
 /* RESPONSIVE */
-@media(max-width:768px){
-  .menu-toggle{display:block;}
-  nav ul{display:none;}
-  .hero{padding:30px 20px;text-align:center;}
-  .hero-content h1{font-size:36px;}
-}
-
-/* LIGHT MODE */
-body.light{
-  background:#f8fafc;
-  color:#020617;
-}
-body.light .project-card{background:white}
+@media(max-width:768px){.menu-toggle{display:block;}nav ul{display:none;position:absolute;top:80px;right:0;background:#020617;flex-direction:column;padding:20px;border-radius:15px;}.menu-toggle.active+ul{display:flex;}.hero{padding:30px 20px;text-align:center;background-attachment:scroll;}.hero-content h1{font-size:36px;}section{padding:60px 20px;}}
 </style>
 </head>
-
 <body>
+
+<!-- LOADER -->
+<div id="loader"><div class="loader-circle"></div></div>
 
 <header class="hero">
 <nav>
 <h2 class="logo">Ghulam Qadir</h2>
+<div class="menu-toggle" id="menu-toggle">☰</div>
 <ul id="nav-links">
 <li><a href="#work">Work</a></li>
 <li><a href="#about">About</a></li>
 <li><a href="#contact">Contact</a></li>
-<li><button id="theme-toggle" class="theme-btn">🌙</button></li>
 </ul>
 </nav>
 
 <div class="hero-content">
-<h1>UI/UX Designer</h1>
-<p>Designing modern user-centered experiences</p>
-<a href="#work" class="btn">View Work</a>
+<h1>Crafting <span class="grad">Premium</span><br>Digital Experiences</h1>
+<p>UI/UX Designer creating modern, user-centered and business-driven products.</p>
+<a href="#work" class="btn">View My Work</a>
 </div>
 </header>
 
-<section id="work">
-<h2>Projects</h2>
-
+<section id="work" class="reveal">
+<h2>Selected Work</h2>
 <div class="projects" id="projectGallery">
-<!-- Default Project -->
-<div class="project-card" onclick="openProject(this)">
-<img src="https://images.unsplash.com/photo-1559028012-481c04fa702d">
-<p class="desc">E-commerce mobile app UI/UX with research and prototyping.</p>
+
+<!-- Project Cards -->
+<div class="project-card" data-desc="UI Design • UX Research" id="project1">
+<img id="preview1" src="https://picsum.photos/600/400?1">
+<input type="file" class="img-upload" onchange="changeImage(event,'preview1')">
+<div class="overlay">
+<h3>E-Commerce App</h3>
+<p>UI Design • UX Research</p>
 </div>
 </div>
 
-<!-- Upload -->
-<div class="upload-box">
-<input type="file" id="fileUpload" accept="image/*,.pdf">
-<div class="loader" id="loader"></div>
-<div id="preview"></div>
+<div class="project-card" data-desc="UX Strategy • Prototyping" id="project2">
+<img id="preview2" src="https://picsum.photos/600/400?2">
+<input type="file" class="img-upload" onchange="changeImage(event,'preview2')">
+<div class="overlay">
+<h3>Finance Dashboard</h3>
+<p>UX Strategy • Prototyping</p>
 </div>
+</div>
+
+<div class="project-card" data-desc="UX Audit • Redesign" id="project3">
+<img id="preview3" src="https://picsum.photos/600/400?3">
+<input type="file" class="img-upload" onchange="changeImage(event,'preview3')">
+<div class="overlay">
+<h3>Healthcare Platform</h3>
+<p>UX Audit • Redesign</p>
+</div>
+</div>
+
+</div>
+
 </section>
 
-<section id="about">
+<section id="about" class="reveal">
 <h2>About Me</h2>
-<p>I am a UI/UX designer with focus on modern, clean and functional design.</p>
+<p>I design clean, scalable and high-impact digital experiences with strong UX foundations.</p>
 </section>
 
-<footer id="contact">
-<h2>Contact</h2>
-<p>Email: your@email.com</p>
-<p>LinkedIn: linkedin.com/in/yourname</p>
-<p>© 2026 Ghulam Qadir</p>
+<section class="reveal">
+<h2>Skills</h2>
+<div class="skill-list">
+<span>Figma</span>
+<span>UX Research</span>
+<span>Wireframing</span>
+<span>Prototyping</span>
+<span>Design Systems</span>
+<span>HTML & CSS</span>
+</div>
+</section>
+
+<section id="contact" class="reveal" style="text-align:center">
+<h2>Let’s Work Together</h2>
+<p>Have a project or opportunity? Let’s connect.</p>
+<a href="mailto:your@email.com" class="btn">Contact Me</a>
+</section>
+
+<footer>
+<p>Designed & Built by <strong>Ghulam Qadir</strong></p>
 </footer>
 
 <!-- MODAL -->
 <div class="modal" id="projectModal">
-<span onclick="closeProject()">×</span>
+<span onclick="closeModal()">×</span>
 <div class="modal-content">
 <img id="modalImg">
 <p id="modalDesc"></p>
@@ -247,69 +179,56 @@ body.light .project-card{background:white}
 </div>
 
 <script>
-/* THEME TOGGLE */
-const themeToggle = document.getElementById("theme-toggle");
-themeToggle.onclick = ()=>{
-  document.body.classList.toggle("light");
-  themeToggle.textContent = document.body.classList.contains("light") ? "☀️" : "🌙";
-};
+const menuToggle=document.getElementById("menu-toggle");
+const navLinks=document.getElementById("nav-links");
+menuToggle.onclick=()=>navLinks.classList.toggle("active");
 
-/* PROJECT MODAL */
-const projectModal = document.getElementById("projectModal");
+// loader
+window.addEventListener("load",()=>{document.getElementById("loader").style.display="none";});
+
+// scroll reveal
+const reveals=document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+  reveals.forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight-100){
+      el.classList.add("active");
+    }
+  });
+});
+
+// ================= IMAGE UPLOAD & PERSISTENCE =================
+const projectCards = document.querySelectorAll(".project-card");
+
+// Load saved images from localStorage
+projectCards.forEach(card=>{
+  const id = card.querySelector("img").id;
+  const saved = localStorage.getItem(id);
+  if(saved) card.querySelector("img").src = saved;
+});
+
+function changeImage(event,imgId){
+  const file = event.target.files[0];
+  if(file){
+    const imgURL = URL.createObjectURL(file);
+    document.getElementById(imgId).src = imgURL;
+    localStorage.setItem(imgId,imgURL);
+  }
+}
+
+// ================= MODAL POPUP =================
+const modal = document.getElementById("projectModal");
 const modalImg = document.getElementById("modalImg");
 const modalDesc = document.getElementById("modalDesc");
 
-function openProject(el){
-  projectModal.style.display = "flex";
-  modalImg.src = el.querySelector("img").src;
-  modalDesc.innerText = el.querySelector(".desc").innerText;
-}
-function closeProject(){
-  projectModal.style.display = "none";
-}
-
-/* IMAGE UPLOAD + GALLERY */
-const fileUpload = document.getElementById("fileUpload");
-const preview = document.getElementById("preview");
-const loader = document.getElementById("loader");
-const gallery = document.getElementById("projectGallery");
-
-// Load saved projects from localStorage
-let savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
-savedProjects.forEach(item => addProjectToGallery(item.src, item.desc));
-
-fileUpload.addEventListener("change", ()=>{
-  const file = fileUpload.files[0];
-  if(!file) return;
-  loader.style.display = "block";
-  preview.innerHTML = "";
-
-  setTimeout(()=>{
-    loader.style.display = "none";
-    if(file.type.includes("image")){
-      const imgURL = URL.createObjectURL(file);
-      preview.innerHTML = `<img src="${imgURL}" width="100%">`;
-      const desc = prompt("Enter project description") || "No description";
-      addProjectToGallery(imgURL, desc);
-      saveProject(imgURL, desc);
-    } else {
-      preview.innerHTML = "<p>📄 PDF uploaded (cannot display preview)</p>";
-    }
-  },800);
+projectCards.forEach(card=>{
+  card.addEventListener("click",()=>{
+    modal.style.display="flex";
+    modalImg.src = card.querySelector("img").src;
+    modalDesc.innerText = card.dataset.desc;
+  });
 });
 
-function addProjectToGallery(src, desc){
-  const div = document.createElement("div");
-  div.className = "project-card";
-  div.innerHTML = `<img src="${src}"><p class="desc">${desc}</p>`;
-  div.onclick = ()=>openProject(div);
-  gallery.appendChild(div);
-}
-
-function saveProject(src, desc){
-  savedProjects.push({src, desc});
-  localStorage.setItem("projects", JSON.stringify(savedProjects));
-}
+function closeModal(){modal.style.display="none";}
 </script>
 
 </body>
