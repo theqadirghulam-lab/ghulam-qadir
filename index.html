@@ -5,13 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ghulam Qadir | UI/UX Designer</title>
 
-<!-- SEO + SOCIAL -->
-<meta property="og:title" content="Ghulam Qadir | UI/UX Designer">
-<meta property="og:description" content="UI/UX Designer creating modern, user-centered digital experiences.">
-<meta property="og:image" content="https://theqadirghulam-lab.github.io/ghulam-qadir/assets/background.png">
-<meta property="og:url" content="https://theqadirghulam-lab.github.io/ghulam-qadir/">
-<meta property="og:type" content="website">
-
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -63,15 +57,15 @@ nav a{color:#e5e7eb;text-decoration:none;}
   text-decoration:none;
 }
 
+/* SECTIONS */
 section{padding:80px;}
 h2{font-size:36px;margin-bottom:30px;}
 
-/* ===== CAROUSEL ===== */
+/* CAROUSEL */
 .carousel{
   position:relative;
   overflow:hidden;
 }
-
 .track{
   display:flex;
   gap:24px;
@@ -93,7 +87,6 @@ h2{font-size:36px;margin-bottom:30px;}
 .project-card:hover{
   transform:translateY(-8px);
 }
-
 .project-card img{
   width:100%;
   height:220px;
@@ -116,14 +109,8 @@ h2{font-size:36px;margin-bottom:30px;}
 }
 .nav.prev{left:0;}
 .nav.next{right:0;}
-@media(max-width:768px){
-  .nav{display:none;}
-  .hero{padding:30px 20px;text-align:center;}
-  .hero-content h1{font-size:36px;}
-  section{padding:60px 20px;}
-}
 
-/* ===== MODAL ===== */
+/* MODAL */
 .modal{
   position:fixed;
   inset:0;
@@ -132,12 +119,13 @@ h2{font-size:36px;margin-bottom:30px;}
   align-items:center;
   justify-content:center;
   z-index:999;
+  padding:20px;
 }
 .modal-content{
   background:#020617;
   padding:20px;
   width:90%;
-  max-width:420px;
+  max-width:800px;
   border-radius:16px;
   position:relative;
 }
@@ -151,19 +139,32 @@ h2{font-size:36px;margin-bottom:30px;}
 }
 .modal-content img{
   width:100%;
+  height:auto;
   border-radius:14px;
-  margin-bottom:14px;
+  margin-bottom:16px;
 }
-.modal-content h3{color:#38bdf8;margin-bottom:6px;}
-.modal-content p{font-size:14px;color:#cbd5f5;}
+.modal-content h3{
+  color:#38bdf8;
+  font-size:22px;
+  margin-bottom:8px;
+  text-align:center;
+}
+.modal-content p{
+  font-size:16px;
+  color:#cbd5f5;
+  text-align:center;
+  line-height:1.4;
+}
 .close{
-  float:right;
+  position:absolute;
+  top:12px;
+  right:16px;
   font-size:30px;
   cursor:pointer;
   color:#38bdf8;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 .site-footer{
   margin-top:80px;
   padding:60px 20px 40px;
@@ -195,6 +196,18 @@ h2{font-size:36px;margin-bottom:30px;}
   text-decoration:none;
 }
 .footer-copy{font-size:13px;color:#9ca3af;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .project-card{min-width:220px;}
+}
+@media(max-width:768px){
+  .modal-content{max-width:95%;}
+  .hero-content h1{font-size:32px;}
+  section{padding:50px 15px;}
+  .nav{display:none;}
+  .hero{padding:30px 20px;text-align:center;}
+}
 </style>
 </head>
 
@@ -217,9 +230,8 @@ h2{font-size:36px;margin-bottom:30px;}
 </div>
 </header>
 
-<!-- ===== WORK ===== -->
+<!-- WORK -->
 <section id="work">
-
 <h2>UI / UX Projects</h2>
 <div class="carousel">
 <button class="nav prev" onclick="slide('ux',-1)">‹</button>
@@ -231,83 +243,16 @@ h2{font-size:36px;margin-bottom:30px;}
 
   <div class="project-card" onclick="openModal('assets/macbook-project.png','Super73 C1X – Future Electric Bike Website (UI/UX)','Futuristic electric bike website with clean UX and strong visuals.')">
     <img src="assets/macbook-project.png">
-    <div class="overlay"><h4> Website (UI/UX)</h4><p>UX Strategy</p></div>
+    <div class="overlay"><h4>Website (UI/UX)</h4><p>UX Strategy</p></div>
   </div>
 
   <div class="project-card" onclick="openModal('assets/frame-1.png','Nike Air Max 90 – E-Commerce Landing Page (UI Design)','High-conversion e-commerce landing page for premium footwear.')">
     <img src="assets/frame-1.png">
     <div class="overlay"><h4>E-Commerce</h4><p>UX Redesign</p></div>
   </div>
-  
-    <div class="project-card" onclick="openModal('assets/login.png','FPGMI Web Design','Modern,Clean Web Design Application.')">
-    <img src="assets/login.png">
-    <div class="overlay"><h4>Web Application</h4><p>UX/UX Web Design</p></div>
-  </div>
-  
-    <div class="project-card" onclick="openModal('assets/dashboard.png','Dashboard','High-conversion e-commerce landing page for premium footwear.')">
-    <img src="assets/dashboard.png">
-    <div class="overlay"><h4>Web Application</h4><p>UX/UX Web Design</p></div>
-  </div>
-
-    <div class="project-card" onclick="openModal('assets/department.png','Web Pages','High-conversion e-commerce landing page for premium footwear.')">
-    <img src="assets/department.png">
-    <div class="overlay"><h4>Web Application</h4><p>UX/UX Web Design</p></div>
-  </div>
 </div>
 <button class="nav next" onclick="slide('ux',1)">›</button>
 </div>
-
-<h2 style="margin-top:80px;">Graphic Design Projects</h2>
-<div class="carousel">
-<button class="nav prev" onclick="slide('graphic',-1)">‹</button>
-<div class="track" id="graphic">
-  <div class="project-card" onclick="openModal('assets/thumbnail.png','Youbtube Thumbnail','Thumbnail design.')">
-    <img src="assets/thumbnail.png">
-    <div class="overlay"><h4>Social Post</h4><p>Graphic Design</p></div>
-  </div>
-
-   <div class="project-card" onclick="openModal('assets/thumbnailyt.png','Youbtube Thumbnail','Thumbnail design.')">
-    <img src="assets/thumbnailyt.png">
-    <div class="overlay"><h4>Social Post</h4><p>Graphic Design</p></div>
-  </div>
-  <div class="project-card" onclick="openModal('assets/banner.png','E-commerce','Banner design.')">
-    <img src="assets/banner.png">
-    <div class="overlay"><h4>Social Post</h4><p>Graphic Design</p></div>
-  </div>
-   <div class="project-card" onclick="openModal('assets/websitetemplate.png','Gulf Education','Banner design.')">
-    <img src="assets/websitetemplate.png">
-    <div class="overlay"><h4>Social Post</h4><p>Graphic Design</p></div>
-  </div>
-
-  <div class="project-card" onclick="openModal('assets/brandmockup.png','Poster Design','Brand promotional poster.')">
-    <img src="assets/brandmockup.png">
-    <div class="overlay"><h4>Poster</h4><p>Branding</p></div>
-  </div>
-   <div class="project-card" onclick="openModal('assets/mockup.png','Poster Design','Brand promotional poster.')">
-    <img src="assets/mockup.png">
-    <div class="overlay"><h4>Poster</h4><p>Branding</p></div>
-  </div>
-    <div class="project-card" onclick="openModal('assets/mockups.png','Poster Design','Brand promotional poster.')">
-    <img src="assets/mockups.png">
-    <div class="overlay"><h4>Poster</h4><p>Branding</p></div>
-  </div>
-
-  <div class="project-card" onclick="openModal('assets/logouk.png','Logo Design','Brand Logo.')">
-    <img src="assets/logouk.png">
-    <div class="overlay"><h4>Logo</h4><p>logo Mockups</p></div>
-  </div>
-   <div class="project-card" onclick="openModal('assets/logousa.png','Logo Design','Brand Logo.')">
-    <img src="assets/logousa.png">
-    <div class="overlay"><h4>Logo</h4><p>logo Mockups</p></div>
-  </div>
-   <div class="project-card" onclick="openModal('assets/perfumesbrands.png','Logo Design','Brand Logo.')">
-    <img src="assets/perfumesbrands.png">
-    <div class="overlay"><h4>Logo</h4><p>logo Mockups</p></div>
-  </div>
-</div>
-<button class="nav next" onclick="slide('graphic',1)">›</button>
-</div>
-
 </section>
 
 <section id="about">
@@ -344,15 +289,21 @@ h2{font-size:36px;margin-bottom:30px;}
 </div>
 
 <script>
+const projectModal = document.getElementById('projectModal');
+const modalImg = document.getElementById('modalImg');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+
 function openModal(img,title,desc){
-  modalImg.src=img;
-  modalTitle.innerText=title;
-  modalDesc.innerText=desc;
-  projectModal.style.display="flex";
+  modalImg.src = img;
+  modalTitle.innerText = title;
+  modalDesc.innerText = desc;
+  projectModal.style.display = "flex";
 }
 function closeModal(){
-  projectModal.style.display="none";
+  projectModal.style.display = "none";
 }
+
 function slide(id,dir){
   document.getElementById(id).scrollLeft += dir*320;
 }
@@ -360,12 +311,3 @@ function slide(id,dir){
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
