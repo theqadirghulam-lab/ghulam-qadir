@@ -669,16 +669,17 @@ function typeText(){
     const char = fullText.charAt(charIndex);
     if(char === "\n"){
       typedLine.innerHTML += "<br>";
-      setTimeout(typeText, 100); // 👈 line break thoda slow lagta hai to natural feel
+      setTimeout(typeText, 50); // line break thoda delay
     } else {
       typedLine.innerHTML += char;
-      setTimeout(typeText, 30); // 👈 fast typing
+      setTimeout(typeText, 15); // 👈 very fast typing
     }
     charIndex++;
   }
 }
 
-window.addEventListener("load", ()=>{ setTimeout(typeText, 200); }); // 👈 initial delay short
+// Start typing immediately on load
+window.addEventListener("load", typeText);
 
 
 // Skill reveal on scroll
@@ -696,6 +697,7 @@ window.addEventListener("scroll",()=>{
 
 </body>
 </html>
+
 
 
 
