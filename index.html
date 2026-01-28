@@ -265,6 +265,34 @@ h2{font-size:36px;margin-bottom:30px;}
   .footer-desc{font-size:14px}
 }
 
+  .whatsapp-btn{
+  padding:12px 26px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  color:#ffffff !important;
+  font-weight:600;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  box-shadow:0 0 14px rgba(34,197,94,.55);
+  transition:.35s ease;
+}
+
+.whatsapp-btn:hover{
+  transform:translateY(-2px) scale(1.05);
+  box-shadow:0 0 26px rgba(34,197,94,.95);
+}
+
+/* Mobile friendly */
+@media(max-width:768px){
+  .footer-socials{
+    flex-wrap:wrap;
+    gap:16px;
+  }
+}
+
+
 
  .animated-gradient{
   background: linear-gradient(270deg,#6366f1,#22d3ee,#f43f5e,#6366f1);
@@ -557,29 +585,33 @@ h2{font-size:36px;margin-bottom:30px;}
 <a href="mailto:your@email.com" class="btn">Contact Me</a>
 </section> -->
 
-<footer class="portfolio-footer" id="contact">
-  <div class="footer-content">
+<footer class="site-footer" id="contact">
+  <h3 class="footer-logo">Ghulam Qadir</h3>
 
-    <h3 class="footer-name">Ghulam Qadir</h3>
-    <p class="footer-role">UI / UX Designer & Graphic Designer</p>
+  <p class="footer-tagline">
+    UI/UX & Graphic Designer with 4+ years of experience crafting 
+    high-impact digital products, brand identities, and conversion-focused designs.
+  </p>
 
-    <p class="footer-desc">
-      I design premium digital experiences that help brands stand out, convert users,
-      and grow with confidence.
-    </p>
+  <div class="footer-socials">
 
-    <div class="footer-socials">
-      <a href="#" aria-label="LinkedIn">LinkedIn</a>
-      <a href="#" aria-label="Behance">Behance</a>
-      <a href="#" aria-label="Dribbble">Dribbble</a>
-      <a href="mailto:your@email.com" aria-label="Email">Email</a>
-    </div>
+    <!-- WhatsApp CTA -->
+    <a 
+      href="https://wa.me/923001234567?text=Hi%20Ghulam%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project."
+      target="_blank"
+      class="whatsapp-btn"
+    >
+      💬 WhatsApp Me
+    </a>
 
-    <p class="footer-copy">
-      © 2026 Ghulam Qadir — Designed with passion ✨
-    </p>
-
+    <!-- Optional links -->
+    <a href="#" target="_blank">LinkedIn</a>
+    <a href="#" target="_blank">Behance</a>
+    <a href="#" target="_blank">Dribbble</a>
+    <a href="mailto:your@email.com">Email</a>
   </div>
+
+  <p class="footer-copy">© 2026 Ghulam Qadir. All rights reserved.</p>
 </footer>
 
 
@@ -673,6 +705,7 @@ window.addEventListener("scroll",()=>{
 
 </body>
 </html>
+
 
 
 
