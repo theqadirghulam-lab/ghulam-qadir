@@ -196,6 +196,44 @@ h2{font-size:36px;margin-bottom:30px;}
 }
 .footer-copy{font-size:13px;color:#9ca3af;}
 
+  /* /* Animated Gradient Text */
+.animated-gradient{
+  background: linear-gradient(270deg,#6366f1,#22d3ee,#f43f5e,#6366f1);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Fade + Slide Up on Reveal */
+.about-text{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
+}
+
+.about-text.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Button pop animation */
+.about-btn{
+  transform:scale(0.8);
+  opacity:0;
+  transition:all 0.5s ease;
+}
+.about-btn.active{
+  transform:scale(1);
+  opacity:1;
+} */
+
   /* Animated Gradient Text */
 .animated-gradient{
   background: linear-gradient(270deg,#6366f1,#22d3ee,#f43f5e,#6366f1);
@@ -232,6 +270,14 @@ h2{font-size:36px;margin-bottom:30px;}
 .about-btn.active{
   transform:scale(1);
   opacity:1;
+}
+
+/* Typing effect */
+.typing-text span{
+  border-right: 2px solid #22d3ee;
+  white-space: nowrap;
+  overflow: hidden;
+  display:inline-block;
 }
   
 </style>
@@ -366,11 +412,30 @@ h2{font-size:36px;margin-bottom:30px;}
   </p>
 </section> -->
 
-  <section id="about" class="about-section reveal" style="padding:80px; max-width:900px; margin:0 auto; text-align:center;">
+  <!-- <section id="about" class="about-section reveal" style="padding:80px; max-width:900px; margin:0 auto; text-align:center;">
   <h2 class="about-title" style="font-size:36px; margin-bottom:30px;">About Me</h2>
   
   <p class="about-text" style="font-size:18px; line-height:1.8; color:#cbd5f5; max-width:800px; margin:0 auto;">
     I am a versatile <span class="animated-gradient">UI/UX & Graphic Designer</span> with <strong>4 years of experience</strong> crafting impactful digital experiences and creative visuals.
+  </p>
+
+  <p class="about-text" style="font-size:18px; line-height:1.8; color:#cbd5f5; max-width:800px; margin:20px auto 0;">
+    I specialize in <strong>user-centered web & mobile interfaces</strong> and <strong>brand identity, logo design, banners, and marketing collateral</strong>. Over the years, I’ve successfully delivered multiple web projects, designing <strong>intuitive interfaces</strong> and <strong>engaging graphics</strong>.
+  </p>
+
+  <p class="about-text" style="font-size:18px; line-height:1.8; color:#cbd5f5; max-width:800px; margin:20px auto 30px;">
+    I am passionate about turning ideas into <span class="animated-gradient">visually stunning and functional designs</span> that help businesses stand out. Whether it’s creating a responsive website, designing a brand logo, or developing a cohesive brand identity, I strive to <strong>exceed client expectations</strong>.
+  </p>
+
+  <a href="#contact" class="btn about-btn" style="margin-top:20px; display:inline-block;">Work With Me</a>
+</section> -->
+
+  <section id="about" class="about-section" style="padding:80px; max-width:900px; margin:0 auto; text-align:center;">
+  <h2 class="about-title" style="font-size:36px; margin-bottom:30px;">About Me</h2>
+  
+  <!-- Typing Effect -->
+  <p class="typing-text" style="font-size:18px; line-height:1.8; color:#cbd5f5; max-width:800px; margin:0 auto;">
+    <span id="typedLine" class="animated-gradient"></span>
   </p>
 
   <p class="about-text" style="font-size:18px; line-height:1.8; color:#cbd5f5; max-width:800px; margin:20px auto 0;">
@@ -428,13 +493,29 @@ function slide(id,dir){
 }
 
   // Scroll reveal for about section
+// const aboutTexts = document.querySelectorAll(".about-text");
+// const aboutBtn = document.querySelector(".about-btn");
+
+// window.addEventListener("scroll",()=>{
+//   aboutTexts.forEach((el,index)=>{
+//     if(el.getBoundingClientRect().top < window.innerHeight - 100){
+//       setTimeout(()=>{el.classList.add("active")}, index*200); // stagger animation
+//     }
+//   });
+  
+//   if(aboutBtn.getBoundingClientRect().top < window.innerHeight - 100){
+//     aboutBtn.classList.add("active");
+//   }
+// });
+
+  // ===== Scroll reveal for About Me =====
 const aboutTexts = document.querySelectorAll(".about-text");
 const aboutBtn = document.querySelector(".about-btn");
 
 window.addEventListener("scroll",()=>{
   aboutTexts.forEach((el,index)=>{
     if(el.getBoundingClientRect().top < window.innerHeight - 100){
-      setTimeout(()=>{el.classList.add("active")}, index*200); // stagger animation
+      setTimeout(()=>{el.classList.add("active")}, index*200);
     }
   });
   
@@ -442,10 +523,25 @@ window.addEventListener("scroll",()=>{
     aboutBtn.classList.add("active");
   }
 });
+
+// ===== Typing Effect =====
+const typedLine = document.getElementById("typedLine");
+const fullText = "I am a versatile UI/UX & Graphic Designer with 4 years of experience crafting impactful digital experiences and creative visuals.";
+let charIndex = 0;
+
+function typeText(){
+  if(charIndex < fullText.length){
+    typedLine.innerHTML += fullText.charAt(charIndex);
+    charIndex++;
+    setTimeout(typeText,50); // typing speed in ms
+  }
+}
+window.addEventListener("load", ()=>{ setTimeout(typeText,500); }); // delay before typing
 </script>
 
 </body>
 </html>
+
 
 
 
