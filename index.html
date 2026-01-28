@@ -164,37 +164,107 @@ h2{font-size:36px;margin-bottom:30px;}
 }
 
 /* ===== FOOTER ===== */
-.site-footer{
-  margin-top:80px;
-  padding:60px 20px 40px;
-  background:linear-gradient(180deg, rgba(2,6,23,.6), rgba(2,6,23,1));
-  border-top:1px solid rgba(255,255,255,.08);
-  text-align:center;
+/* ===== PREMIUM FOOTER ===== */
+.portfolio-footer{
+  position: relative;
+  padding: 80px 20px 50px;
+  background: linear-gradient(180deg, rgba(2,6,23,.85), #020617);
+  border-top: 1px solid rgba(255,255,255,.08);
+  text-align: center;
+  overflow: hidden;
 }
-.footer-logo{
-  font-size:26px;
-  font-weight:700;
-  background:linear-gradient(90deg,#6366f1,#22d3ee);
+
+/* Glow border */
+.portfolio-footer::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:80%;
+  height:2px;
+  background: linear-gradient(90deg,#6366f1,#22d3ee,#ec4899);
+  animation: footerGlow 4s linear infinite;
+}
+
+@keyframes footerGlow{
+  0%{opacity:.4}
+  50%{opacity:1}
+  100%{opacity:.4}
+}
+
+.footer-content{
+  max-width: 720px;
+  margin: auto;
+}
+
+.footer-name{
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(90deg,#6366f1,#22d3ee);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
-.footer-tagline{
-  font-size:15px;
-  color:#cbd5f5;
-  max-width:520px;
-  margin:14px auto 26px;
+
+.footer-role{
+  margin-top: 8px;
+  font-size: 16px;
+  color: #cbd5f5;
 }
+
+.footer-desc{
+  margin: 20px auto 30px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #9ca3af;
+}
+
 .footer-socials{
   display:flex;
   justify-content:center;
-  gap:22px;
-  margin-bottom:20px;
+  gap:26px;
+  flex-wrap:wrap;
+  margin-bottom:30px;
 }
+
 .footer-socials a{
   color:#e5e7eb;
   text-decoration:none;
+  font-size:15px;
+  position:relative;
+  transition:.3s;
 }
-.footer-copy{font-size:13px;color:#9ca3af;}
+
+.footer-socials a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:2px;
+  background:linear-gradient(90deg,#6366f1,#22d3ee);
+  transition:.3s;
+}
+
+.footer-socials a:hover{
+  color:#22d3ee;
+}
+
+.footer-socials a:hover::after{
+  width:100%;
+}
+
+.footer-copy{
+  font-size:13px;
+  color:#6b7280;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .footer-name{font-size:26px}
+  .footer-desc{font-size:14px}
+}
+
 
  .animated-gradient{
   background: linear-gradient(270deg,#6366f1,#22d3ee,#f43f5e,#6366f1);
@@ -481,23 +551,37 @@ h2{font-size:36px;margin-bottom:30px;}
 </section>
 
 
-<section id="contact" style="text-align:center">
+<!-- <section id="contact" style="text-align:center">
 <h2>Let’s Work Together</h2>
 <p>Have a project? Let’s connect.</p><br>
 <a href="mailto:your@email.com" class="btn">Contact Me</a>
-</section>
+</section> -->
 
-<footer class="site-footer">
-<h3 class="footer-logo">Ghulam Qadir</h3>
-<p class="footer-tagline">UI/UX Designer crafting modern digital experiences.</p>
-<div class="footer-socials">
-<a href="#">LinkedIn</a>
-<a href="#">Behance</a>
-<a href="#">Dribbble</a>
-<a href="mailto:your@email.com">Email</a>
-</div>
-<p class="footer-copy">© 2026 Ghulam Qadir</p>
+<footer class="portfolio-footer" id="contact">
+  <div class="footer-content">
+
+    <h3 class="footer-name">Ghulam Qadir</h3>
+    <p class="footer-role">UI / UX Designer & Graphic Designer</p>
+
+    <p class="footer-desc">
+      I design premium digital experiences that help brands stand out, convert users,
+      and grow with confidence.
+    </p>
+
+    <div class="footer-socials">
+      <a href="#" aria-label="LinkedIn">LinkedIn</a>
+      <a href="#" aria-label="Behance">Behance</a>
+      <a href="#" aria-label="Dribbble">Dribbble</a>
+      <a href="mailto:your@email.com" aria-label="Email">Email</a>
+    </div>
+
+    <p class="footer-copy">
+      © 2026 Ghulam Qadir — Designed with passion ✨
+    </p>
+
+  </div>
 </footer>
+
 
 <!-- MODAL -->
 <div id="projectModal" class="modal">
@@ -589,6 +673,7 @@ window.addEventListener("scroll",()=>{
 
 </body>
 </html>
+
 
 
 
