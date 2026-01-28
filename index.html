@@ -164,132 +164,101 @@ h2{font-size:36px;margin-bottom:30px;}
 }
 
 /* ===== FOOTER ===== */
-/* ===== PREMIUM FOOTER ===== */
-.portfolio-footer{
-  position: relative;
-  padding: 80px 20px 50px;
-  background: linear-gradient(180deg, rgba(2,6,23,.85), #020617);
-  border-top: 1px solid rgba(255,255,255,.08);
-  text-align: center;
-  overflow: hidden;
+.pro-footer{
+  padding:90px 20px 50px;
+  background:linear-gradient(180deg,rgba(2,6,23,.6),#020617);
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;
 }
 
-/* Glow border */
-.portfolio-footer::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:80%;
-  height:2px;
-  background: linear-gradient(90deg,#6366f1,#22d3ee,#ec4899);
-  animation: footerGlow 4s linear infinite;
-}
-
-@keyframes footerGlow{
-  0%{opacity:.4}
-  50%{opacity:1}
-  100%{opacity:.4}
-}
-
-.footer-content{
-  max-width: 720px;
-  margin: auto;
-}
-
-.footer-name{
-  font-size: 32px;
-  font-weight: 700;
-  background: linear-gradient(90deg,#6366f1,#22d3ee);
+/* Heading */
+.footer-heading{
+  font-size:40px;
+  font-weight:700;
+  background:linear-gradient(90deg,#6366f1,#22d3ee);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
-.footer-role{
-  margin-top: 8px;
-  font-size: 16px;
-  color: #cbd5f5;
+/* Gradient line */
+.footer-line{
+  width:120px;
+  height:4px;
+  margin:18px auto 28px;
+  border-radius:10px;
+  background:linear-gradient(90deg,#6366f1,#22d3ee);
+  box-shadow:0 0 16px rgba(34,211,238,.7);
 }
 
+/* Description */
 .footer-desc{
-  margin: 20px auto 30px;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #9ca3af;
+  max-width:720px;
+  margin:0 auto 40px;
+  font-size:16px;
+  line-height:1.7;
+  color:#cbd5f5;
 }
 
-.footer-socials{
+/* WhatsApp CTA */
+.footer-cta{
+  margin-bottom:40px;
+}
+
+.whatsapp-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  padding:16px 34px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  color:#ffffff;
+  font-size:17px;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 0 25px rgba(34,197,94,.6);
+  transition:.4s ease;
+}
+
+.whatsapp-cta:hover{
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:0 0 40px rgba(34,197,94,1);
+}
+
+.wa-icon{
+  font-size:22px;
+}
+
+/* Social links */
+.footer-links{
   display:flex;
   justify-content:center;
   gap:26px;
+  margin-bottom:28px;
   flex-wrap:wrap;
-  margin-bottom:30px;
 }
 
-.footer-socials a{
+.footer-links a{
   color:#e5e7eb;
   text-decoration:none;
-  font-size:15px;
-  position:relative;
+  font-size:14px;
+  opacity:.8;
   transition:.3s;
 }
-
-.footer-socials a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0%;
-  height:2px;
-  background:linear-gradient(90deg,#6366f1,#22d3ee);
-  transition:.3s;
-}
-
-.footer-socials a:hover{
+.footer-links a:hover{
+  opacity:1;
   color:#22d3ee;
 }
 
-.footer-socials a:hover::after{
-  width:100%;
-}
-
+/* Copyright */
 .footer-copy{
   font-size:13px;
-  color:#6b7280;
+  color:#9ca3af;
 }
 
 /* Responsive */
 @media(max-width:768px){
-  .footer-name{font-size:26px}
-  .footer-desc{font-size:14px}
-}
-
-  .whatsapp-btn{
-  padding:12px 26px;
-  border-radius:999px;
-  background:linear-gradient(135deg,#22c55e,#16a34a);
-  color:#ffffff !important;
-  font-weight:600;
-  text-decoration:none;
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  box-shadow:0 0 14px rgba(34,197,94,.55);
-  transition:.35s ease;
-}
-
-.whatsapp-btn:hover{
-  transform:translateY(-2px) scale(1.05);
-  box-shadow:0 0 26px rgba(34,197,94,.95);
-}
-
-/* Mobile friendly */
-@media(max-width:768px){
-  .footer-socials{
-    flex-wrap:wrap;
-    gap:16px;
-  }
+  .footer-heading{font-size:32px;}
+  .footer-desc{font-size:15px;}
 }
 
 
@@ -585,33 +554,39 @@ h2{font-size:36px;margin-bottom:30px;}
 <a href="mailto:your@email.com" class="btn">Contact Me</a>
 </section> -->
 
-<footer class="site-footer" id="contact">
-  <h3 class="footer-logo">Ghulam Qadir</h3>
+<footer class="pro-footer" id="contact">
 
-  <p class="footer-tagline">
-    UI/UX & Graphic Designer with 4+ years of experience crafting 
-    high-impact digital products, brand identities, and conversion-focused designs.
+  <h2 class="footer-heading">Work With Me</h2>
+  <div class="footer-line"></div>
+
+  <p class="footer-desc">
+    I’m a UI/UX & Graphic Designer with 4+ years of experience helping brands
+    build meaningful digital products, strong identities, and conversion-focused designs.
+    Let’s create something impactful together.
   </p>
 
-  <div class="footer-socials">
-
-    <!-- WhatsApp CTA -->
+  <!-- CTA -->
+  <div class="footer-cta">
     <a 
-      href="https://wa.me/923001234567?text=Hi%20Ghulam%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project."
+      href="https://wa.me/923001234567?text=Hi%20Ghulam%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20work%20with%20you."
       target="_blank"
-      class="whatsapp-btn"
+      class="whatsapp-cta"
     >
-      💬 WhatsApp Me
+      <span class="wa-icon">🟢</span>
+      <span>Chat on WhatsApp</span>
     </a>
+  </div>
 
-    <!-- Optional links -->
-    <a href="#" target="_blank">LinkedIn</a>
-    <a href="#" target="_blank">Behance</a>
-    <a href="#" target="_blank">Dribbble</a>
+  <!-- Social Links -->
+  <div class="footer-links">
+    <a href="#">LinkedIn</a>
+    <a href="#">Behance</a>
+    <a href="#">Dribbble</a>
     <a href="mailto:your@email.com">Email</a>
   </div>
 
-  <p class="footer-copy">© 2026 Ghulam Qadir. All rights reserved.</p>
+  <p class="footer-copy">© 2026 Ghulam Qadir • UI/UX & Graphic Designer</p>
+
 </footer>
 
 
@@ -705,6 +680,7 @@ window.addEventListener("scroll",()=>{
 
 </body>
 </html>
+
 
 
 
