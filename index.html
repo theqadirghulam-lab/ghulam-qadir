@@ -668,15 +668,18 @@ function typeText(){
   if(charIndex < fullText.length){
     const char = fullText.charAt(charIndex);
     if(char === "\n"){
-      typedLine.innerHTML += "<br>"; // add line break
+      typedLine.innerHTML += "<br>";
+      setTimeout(typeText, 100); // 👈 line break thoda slow lagta hai to natural feel
     } else {
       typedLine.innerHTML += char;
+      setTimeout(typeText, 30); // 👈 fast typing
     }
     charIndex++;
-    setTimeout(typeText,50);
   }
 }
-window.addEventListener("load", ()=>{ setTimeout(typeText,500); });
+
+window.addEventListener("load", ()=>{ setTimeout(typeText, 200); }); // 👈 initial delay short
+
 
 // Skill reveal on scroll
 const skillItems = document.querySelectorAll(".skill-list span");
@@ -693,6 +696,7 @@ window.addEventListener("scroll",()=>{
 
 </body>
 </html>
+
 
 
 
