@@ -5,18 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ghulam Qadir | UI/UX Designer</title>
 
+<!-- SEO + SOCIAL -->
+<meta property="og:title" content="Ghulam Qadir | UI/UX Designer">
+<meta property="og:description" content="UI/UX Designer creating modern, user-centered digital experiences.">
+<meta property="og:image" content="https://theqadirghulam-lab.github.io/ghulam-qadir/assets/background.png">
+<meta property="og:url" content="https://theqadirghulam-lab.github.io/ghulam-qadir/">
+<meta property="og:type" content="website">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-body{background:#020617;color:#e5e7eb;}
 html{scroll-behavior:smooth;}
+body{background:#020617;color:#e5e7eb;}
 
 /* HERO */
 .hero{
   min-height:100vh;
   padding:40px 80px;
-  background:linear-gradient(to right,rgba(2,6,23,.92),rgba(2,6,23,.75)),
+  background:
+  linear-gradient(to right,rgba(2,6,23,.92),rgba(2,6,23,.75)),
   url("assets/food-app.png");
   background-size:cover;
   background-position:center;
@@ -30,23 +38,28 @@ nav{
   border-radius:20px;
   background:rgba(2,6,23,.6);
 }
-.logo{color:#22d3ee;font-size:24px;font-weight:700;}
-nav ul{display:flex;gap:30px;list-style:none;}
-nav a{color:#fff;text-decoration:none;}
 
-.hero-content{margin-top:140px;max-width:650px;}
-.hero-content h1{font-size:56px;color:#fff;}
+.logo{font-size:24px;font-weight:700;color:#22d3ee;}
+nav ul{display:flex;gap:30px;list-style:none;}
+nav a{color:#e5e7eb;text-decoration:none;}
+
+.hero-content{
+  margin-top:140px;
+  max-width:650px;
+}
+.hero-content h1{font-size:56px;color:white;}
 .grad{
   background:linear-gradient(90deg,#6366f1,#22d3ee);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 .hero-content p{margin:20px 0 30px;color:#cbd5f5;}
+
 .btn{
   padding:16px 34px;
   border-radius:999px;
   background:linear-gradient(135deg,#6366f1,#22d3ee);
-  color:#fff;
+  color:white;
   text-decoration:none;
 }
 
@@ -59,23 +72,29 @@ h2{font-size:36px;margin-bottom:40px;}
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
 }
+
 .project-card{
-  cursor:pointer;
   border-radius:24px;
   overflow:hidden;
+  background:#020617;
+  cursor:pointer;
 }
+
 .project-card img{
   width:100%;
   height:260px;
   object-fit:cover;
 }
-.overlay{padding:20px;}
+
+.overlay{
+  padding:20px;
+}
 
 /* MODAL */
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.8);
+  background:rgba(0,0,0,.75);
   display:none;
   align-items:center;
   justify-content:center;
@@ -84,51 +103,35 @@ h2{font-size:36px;margin-bottom:40px;}
 
 .modal-content{
   background:#020617;
+  padding:20px;
   width:90%;
   max-width:420px;
   border-radius:18px;
-  padding:16px;
-  position:relative;
 }
 
-.gallery{
-  overflow:hidden;
-  position:relative;
-}
-
-.gallery-track{
-  display:flex;
-  transition:.4s ease;
-}
-
-.gallery img{
+.modal-content img{
   width:100%;
-  flex-shrink:0;
   border-radius:14px;
+  margin-bottom:14px;
 }
 
-.arrow{
-  position:absolute;
-  top:45%;
-  font-size:28px;
-  color:#38bdf8;
-  cursor:pointer;
-  user-select:none;
+.modal-content h3{
+  margin-bottom:6px;
 }
-.prev{left:10px;}
-.next{right:10px;}
+
+.modal-content p{
+  font-size:14px;
+  color:#cbd5f5;
+}
 
 .close{
-  position:absolute;
-  top:10px;
-  right:14px;
-  font-size:22px;
+  float:right;
+  font-size:24px;
   cursor:pointer;
+  color:#38bdf8;
 }
 
-.modal h3{margin-top:14px;}
-.modal p{color:#cbd5f5;font-size:14px;}
-
+/* FOOTER */
 footer{text-align:center;padding:30px;color:#9ca3af;}
 
 @media(max-width:768px){
@@ -153,7 +156,7 @@ footer{text-align:center;padding:30px;color:#9ca3af;}
 
 <div class="hero-content">
 <h1>Crafting <span class="grad">Premium</span><br>Digital Experiences</h1>
-<p>UI/UX Designer creating modern products.</p>
+<p>UI/UX Designer creating modern, user-centered products.</p>
 <a href="#work" class="btn">View My Work</a>
 </div>
 </header>
@@ -163,95 +166,89 @@ footer{text-align:center;padding:30px;color:#9ca3af;}
 
 <div class="projects">
 
-<div class="project-card" onclick="openProject(0)">
-<img src="assets/food-app.png">
+<div class="project-card"
+onclick="openModal(
+  'assets/food-app.png',
+  'Food App UI',
+  'A modern food delivery app UI focused on usability, smooth ordering flow and clean visuals.'
+)">
+<img src="assets/food-app.png" alt="Food App">
 <div class="overlay">
 <h3>Food App</h3>
-<p>UI • UX</p>
+<p>UI Design • UX Research</p>
 </div>
 </div>
 
-<div class="project-card" onclick="openProject(1)">
-<img src="assets/macbook-project.png">
+<div class="project-card"
+onclick="openModal(
+  'assets/macbook-project.png',
+  'Dashboard Design',
+  'A SaaS dashboard design with analytics focus, scalable components and clean data hierarchy.'
+)">
+<img src="assets/macbook-project.png" alt="Dashboard">
 <div class="overlay">
-<h3>Dashboard</h3>
-<p>SaaS UI</p>
+<h3>Dashboard Design</h3>
+<p>UX Strategy • Prototyping</p>
+</div>
+</div>
+
+<div class="project-card"
+onclick="openModal(
+  'assets/frame-1.png',
+  'Mobile App Redesign',
+  'Redesigned mobile experience with improved accessibility, navigation and visual clarity.'
+)">
+<img src="assets/frame-1.png" alt="Mobile App">
+<div class="overlay">
+<h3>Mobile App</h3>
+<p>UX Audit • Redesign</p>
 </div>
 </div>
 
 </div>
 </section>
 
-<footer>Designed & Built by <strong>Ghulam Qadir</strong></footer>
+<section id="about">
+<h2>About Me</h2>
+<p>I design clean, scalable and high-impact digital experiences.</p>
+</section>
+
+<section id="contact" style="text-align:center">
+<h2>Let’s Work Together</h2>
+<p>Have a project? Let’s connect.</p>
+<a href="mailto:your@email.com" class="btn">Contact Me</a>
+</section>
+
+<footer>
+<p>Designed & Built by <strong>Ghulam Qadir</strong></p>
+</footer>
 
 <!-- MODAL -->
-<div id="modal" class="modal">
-<div class="modal-content">
-<span class="close" onclick="closeModal()">✕</span>
-
-<div class="gallery">
-<div class="gallery-track" id="track"></div>
-<span class="arrow prev" onclick="prev()">‹</span>
-<span class="arrow next" onclick="next()">›</span>
-</div>
-
-<h3 id="title"></h3>
-<p id="desc"></p>
-</div>
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <img id="modalImg">
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+  </div>
 </div>
 
 <script>
-let current=0,index=0;
-
-const projects=[
-{
-title:"Food App UI",
-desc:"Complete food delivery experience with clean UI & smooth user flow.",
-images:[
-"assets/food-app.png",
-"assets/food-app-2.png",
-"assets/food-app-3.png"
-]
-},
-{
-title:"Dashboard Design",
-desc:"SaaS dashboard with analytics focused UX.",
-images:[
-"assets/macbook-project.png",
-"assets/macbook-project-2.png"
-]
-}
-];
-
-function openProject(i){
-current=i; index=0;
-const track=document.getElementById("track");
-track.innerHTML="";
-projects[i].images.forEach(img=>{
-track.innerHTML+=`<img src="${img}">`;
-});
-update();
-document.getElementById("title").innerText=projects[i].title;
-document.getElementById("desc").innerText=projects[i].desc;
-document.getElementById("modal").style.display="flex";
-}
-
-function update(){
-document.getElementById("track").style.transform=`translateX(-${index*100}%)`;
-}
-
-function next(){
-if(index<projects[current].images.length-1){index++;update();}
-}
-
-function prev(){
-if(index>0){index--;update();}
+function openModal(img,title,desc){
+  document.getElementById("modalImg").src = img;
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalDesc").innerText = desc;
+  document.getElementById("projectModal").style.display = "flex";
 }
 
 function closeModal(){
-document.getElementById("modal").style.display="none";
+  document.getElementById("projectModal").style.display = "none";
 }
 </script>
 
 </body>
 </html>
+
+
+
+
