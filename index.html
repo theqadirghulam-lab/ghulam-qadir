@@ -196,8 +196,7 @@ h2{font-size:36px;margin-bottom:30px;}
 }
 .footer-copy{font-size:13px;color:#9ca3af;}
 
-  /* /* Animated Gradient Text */
-.animated-gradient{
+ .animated-gradient{
   background: linear-gradient(270deg,#6366f1,#22d3ee,#f43f5e,#6366f1);
   background-size: 600% 600%;
   -webkit-background-clip: text;
@@ -211,7 +210,6 @@ h2{font-size:36px;margin-bottom:30px;}
   100%{background-position:0% 50%;}
 }
 
-/* Fade + Slide Up on Reveal */
 .about-text{
   opacity:0;
   transform:translateY(40px);
@@ -223,45 +221,6 @@ h2{font-size:36px;margin-bottom:30px;}
   transform:translateY(0);
 }
 
-/* Button pop animation */
-.about-btn{
-  transform:scale(0.8);
-  opacity:0;
-  transition:all 0.5s ease;
-}
-.about-btn.active{
-  transform:scale(1);
-  opacity:1;
-} */
-
-  /* Animated Gradient Text */
-.animated-gradient{
-  background: linear-gradient(270deg,#6366f1,#22d3ee,#f43f5e,#6366f1);
-  background-size: 600% 600%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientMove 8s ease infinite;
-}
-
-@keyframes gradientMove {
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
-
-/* Fade + Slide Up on Reveal */
-.about-text{
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 0.8s ease;
-}
-
-.about-text.active{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* Button pop animation */
 .about-btn{
   transform:scale(0.8);
   opacity:0;
@@ -272,12 +231,11 @@ h2{font-size:36px;margin-bottom:30px;}
   opacity:1;
 }
 
-/* Typing effect */
 .typing-text span{
   border-right: 2px solid #22d3ee;
-  white-space: nowrap;
-  overflow: hidden;
+  white-space: pre-wrap; /* allows line breaks */
   display:inline-block;
+  text-align:center;
 }
   
 </style>
@@ -431,7 +389,7 @@ h2{font-size:36px;margin-bottom:30px;}
   <a href="#contact" class="btn about-btn" style="margin-top:20px; display:inline-block;">Work With Me</a>
 </section> -->
 
-  <section id="about" class="about-section" style="padding:80px; max-width:900px; margin:0 auto; text-align:center;">
+ <section id="about" class="about-section" style="padding:80px; max-width:900px; margin:0 auto; text-align:center;">
   <h2 class="about-title" style="font-size:36px; margin-bottom:30px;">About Me</h2>
   
   <!-- Typing Effect -->
@@ -509,7 +467,7 @@ function slide(id,dir){
 //   }
 // });
 
-  // ===== Scroll reveal for About Me =====
+ // Scroll reveal
 const aboutTexts = document.querySelectorAll(".about-text");
 const aboutBtn = document.querySelector(".about-btn");
 
@@ -525,23 +483,29 @@ window.addEventListener("scroll",()=>{
   }
 });
 
-// ===== Typing Effect =====
+// Typing Effect with line break
 const typedLine = document.getElementById("typedLine");
-const fullText = "I am a versatile UI/UX & Graphic Designer with 4 years of experience crafting impactful digital experiences and creative visuals.";
+const fullText = "I am a versatile UI/UX & Graphic Designer with 4 years of experience.\nCrafting impactful digital experiences and creative visuals.";
 let charIndex = 0;
 
 function typeText(){
   if(charIndex < fullText.length){
-    typedLine.innerHTML += fullText.charAt(charIndex);
+    const char = fullText.charAt(charIndex);
+    if(char === "\n"){
+      typedLine.innerHTML += "<br>"; // add line break
+    } else {
+      typedLine.innerHTML += char;
+    }
     charIndex++;
-    setTimeout(typeText,50); // typing speed in ms
+    setTimeout(typeText,50);
   }
 }
-window.addEventListener("load", ()=>{ setTimeout(typeText,500); }); // delay before typing
+window.addEventListener("load", ()=>{ setTimeout(typeText,500); });
 </script>
 
 </body>
 </html>
+
 
 
 
