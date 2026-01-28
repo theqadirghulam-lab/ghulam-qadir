@@ -20,16 +20,7 @@ html{scroll-behavior:smooth;}
 body{background:#020617;color:#e5e7eb;}
 
 /* HERO */
-/* .hero{
-  min-height:100vh;
-  padding:40px 80px;
-  background:
-  linear-gradient(to right,rgba(2,6,23,.92),rgba(2,6,23,.75)),
-  url("assets/food-app.png");
-  background-size:cover;
-  background-position:center;
-} */
-  .hero{
+.hero{
   min-height:100vh;
   padding:40px 80px;
   background:
@@ -38,7 +29,6 @@ body{background:#020617;color:#e5e7eb;}
   background-size:cover;
   background-position:center;
 }
-
 
 nav{
   display:flex;
@@ -74,33 +64,66 @@ nav a{color:#e5e7eb;text-decoration:none;}
 }
 
 section{padding:80px;}
-h2{font-size:36px;margin-bottom:40px;}
+h2{font-size:36px;margin-bottom:30px;}
 
-/* PROJECTS */
-.projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
+/* ===== CAROUSEL ===== */
+.carousel{
+  position:relative;
+  overflow:hidden;
 }
 
+.track{
+  display:flex;
+  gap:24px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  padding:10px 0;
+}
+.track::-webkit-scrollbar{display:none;}
+
 .project-card{
-  border-radius:24px;
-  overflow:hidden;
+  min-width:280px;
   background:#020617;
+  border-radius:20px;
+  overflow:hidden;
   cursor:pointer;
+  border:1px solid rgba(255,255,255,.08);
+  transition:.35s;
+}
+.project-card:hover{
+  transform:translateY(-8px);
 }
 
 .project-card img{
   width:100%;
-  height:260px;
+  height:220px;
   object-fit:cover;
 }
+.overlay{padding:16px;}
 
-.overlay{
-  padding:20px;
+.nav{
+  position:absolute;
+  top:45%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,.6);
+  color:white;
+  border:none;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  font-size:26px;
+  cursor:pointer;
+}
+.nav.prev{left:0;}
+.nav.next{right:0;}
+@media(max-width:768px){
+  .nav{display:none;}
+  .hero{padding:30px 20px;text-align:center;}
+  .hero-content h1{font-size:36px;}
+  section{padding:60px 20px;}
 }
 
-/* MODAL */
+/* ===== MODAL ===== */
 .modal{
   position:fixed;
   inset:0;
@@ -110,16 +133,7 @@ h2{font-size:36px;margin-bottom:40px;}
   justify-content:center;
   z-index:999;
 }
-
-/* .modal-content{
-  background:#020617;
-  padding:20px;
-  width:90%;
-  max-width:420px;
-  border-radius:18px;
-} */
-
-  .modal-content{
+.modal-content{
   background:#020617;
   padding:20px;
   width:90%;
@@ -127,7 +141,6 @@ h2{font-size:36px;margin-bottom:40px;}
   border-radius:16px;
   position:relative;
 }
-
 .modal-content::before{
   content:"";
   position:absolute;
@@ -136,27 +149,13 @@ h2{font-size:36px;margin-bottom:40px;}
   background:linear-gradient(135deg,#6366f1,#22d3ee);
   z-index:-1;
 }
-
-
- 
-
-
 .modal-content img{
   width:100%;
   border-radius:14px;
   margin-bottom:14px;
 }
-
-.modal-content h3{
-  margin-bottom:6px;
-   color:#38bdf8;
-}
-
-.modal-content p{
-  font-size:14px;
-  color:#cbd5f5;
-}
-
+.modal-content h3{color:#38bdf8;margin-bottom:6px;}
+.modal-content p{font-size:14px;color:#cbd5f5;}
 .close{
   float:right;
   font-size:30px;
@@ -164,89 +163,38 @@ h2{font-size:36px;margin-bottom:40px;}
   color:#38bdf8;
 }
 
-/* FOOTER */
-
-  .site-footer{
+/* ===== FOOTER ===== */
+.site-footer{
   margin-top:80px;
   padding:60px 20px 40px;
-  background:
-    linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,1));
-  border-top:1px solid rgba(255,255,255,0.08);
+  background:linear-gradient(180deg, rgba(2,6,23,.6), rgba(2,6,23,1));
+  border-top:1px solid rgba(255,255,255,.08);
   text-align:center;
 }
-
-.footer-content{
-  max-width:900px;
-  margin:auto;
-}
-
 .footer-logo{
   font-size:26px;
   font-weight:700;
   background:linear-gradient(90deg,#6366f1,#22d3ee);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  margin-bottom:12px;
 }
-
 .footer-tagline{
   font-size:15px;
   color:#cbd5f5;
   max-width:520px;
-  margin:0 auto 28px;
-  line-height:1.6;
+  margin:14px auto 26px;
 }
-
 .footer-socials{
   display:flex;
   justify-content:center;
   gap:22px;
-  margin-bottom:30px;
+  margin-bottom:20px;
 }
-
 .footer-socials a{
   color:#e5e7eb;
-  font-size:14px;
   text-decoration:none;
-  position:relative;
-  transition:.3s ease;
 }
-
-.footer-socials a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0;
-  height:2px;
-  background:#22d3ee;
-  transition:.3s;
-}
-
-.footer-socials a:hover{
-  color:#22d3ee;
-}
-
-.footer-socials a:hover::after{
-  width:100%;
-}
-
-.footer-copy{
-  font-size:13px;
-  color:#9ca3af;
-}
-
-
-
-
-  
-footer{text-align:center;padding:30px;color:#9ca3af;}
-
-@media(max-width:768px){
-  .hero{padding:30px 20px;text-align:center;}
-  .hero-content h1{font-size:36px;}
-  section{padding:60px 20px;}
-}
+.footer-copy{font-size:13px;color:#9ca3af;}
 </style>
 </head>
 
@@ -269,51 +217,53 @@ footer{text-align:center;padding:30px;color:#9ca3af;}
 </div>
 </header>
 
+<!-- ===== WORK ===== -->
 <section id="work">
-<h2>Selected Work</h2>
 
-<div class="projects">
+<h2>UI / UX Projects</h2>
+<div class="carousel">
+<button class="nav prev" onclick="slide('ux',-1)">‹</button>
+<div class="track" id="ux">
+  <div class="project-card" onclick="openModal('assets/food-app.png','Food App UI','Modern food delivery app with smooth UX flow.')">
+    <img src="assets/food-app.png">
+    <div class="overlay"><h4>Food App</h4><p>UI / UX</p></div>
+  </div>
 
-<div class="project-card"
-onclick="openModal(
-  'assets/food-app.png',
-  'Food App UI',
-  'A modern food delivery app UI focused on usability, smooth ordering flow and clean visuals.'
-)">
-<img src="assets/food-app.png" alt="Food App">
-<div class="overlay">
-<h3>Food App</h3>
-<p>UI Design • UX Research</p>
-</div>
-</div>
+  <div class="project-card" onclick="openModal('assets/macbook-project.png','Dashboard UI','SaaS dashboard with analytics focus.')">
+    <img src="assets/macbook-project.png">
+    <div class="overlay"><h4>Dashboard</h4><p>UX Strategy</p></div>
+  </div>
 
-<div class="project-card"
-onclick="openModal(
-  'assets/macbook-project.png',
-  'Dashboard Design',
-  'A SaaS dashboard design with analytics focus, scalable components and clean data hierarchy.'
-)">
-<img src="assets/macbook-project.png" alt="Dashboard">
-<div class="overlay">
-<h3>Dashboard Design</h3>
-<p>UX Strategy • Prototyping</p>
+  <div class="project-card" onclick="openModal('assets/frame-1.png','Mobile App','Clean mobile app redesign.')">
+    <img src="assets/frame-1.png">
+    <div class="overlay"><h4>Mobile App</h4><p>UX Redesign</p></div>
+  </div>
 </div>
+<button class="nav next" onclick="slide('ux',1)">›</button>
 </div>
 
-<div class="project-card"
-onclick="openModal(
-  'assets/frame-1.png',
-  'Mobile App Redesign',
-  'Redesigned mobile experience with improved accessibility, navigation and visual clarity.'
-)">
-<img src="assets/frame-1.png" alt="Mobile App">
-<div class="overlay">
-<h3>Mobile App</h3>
-<p>UX Audit • Redesign</p>
+<h2 style="margin-top:80px;">Graphic Design Projects</h2>
+<div class="carousel">
+<button class="nav prev" onclick="slide('graphic',-1)">‹</button>
+<div class="track" id="graphic">
+  <div class="project-card" onclick="openModal('assets/graphic1.jpg','Social Media Post','Instagram marketing design.')">
+    <img src="assets/graphic1.jpg">
+    <div class="overlay"><h4>Social Post</h4><p>Graphic Design</p></div>
+  </div>
+
+  <div class="project-card" onclick="openModal('assets/graphic2.jpg','Poster Design','Brand promotional poster.')">
+    <img src="assets/graphic2.jpg">
+    <div class="overlay"><h4>Poster</h4><p>Branding</p></div>
+  </div>
+
+  <div class="project-card" onclick="openModal('assets/graphic3.jpg','YouTube Thumbnail','High CTR thumbnail.')">
+    <img src="assets/graphic3.jpg">
+    <div class="overlay"><h4>Thumbnail</h4><p>YouTube</p></div>
+  </div>
 </div>
+<button class="nav next" onclick="slide('graphic',1)">›</button>
 </div>
 
-</div>
 </section>
 
 <section id="about">
@@ -323,64 +273,46 @@ onclick="openModal(
 
 <section id="contact" style="text-align:center">
 <h2>Let’s Work Together</h2>
-<p>Have a project? Let’s connect.</p>
-  <br>
+<p>Have a project? Let’s connect.</p><br>
 <a href="mailto:your@email.com" class="btn">Contact Me</a>
 </section>
 
 <footer class="site-footer">
-  <div class="footer-content">
-    <h3 class="footer-logo">Ghulam Qadir</h3>
-    <p class="footer-tagline">
-      UI/UX Designer crafting clean, modern & user-centered digital experiences.
-    </p>
-
-    <div class="footer-socials">
-      <a href="#" aria-label="LinkedIn">LinkedIn</a>
-      <a href="#" aria-label="Behance">Behance</a>
-      <a href="#" aria-label="Dribbble">Dribbble</a>
-      <a href="mailto:your@email.com" aria-label="Email">Email</a>
-    </div>
-
-    <p class="footer-copy">
-      © 2026 Ghulam Qadir. All rights reserved.
-    </p>
-  </div>
+<h3 class="footer-logo">Ghulam Qadir</h3>
+<p class="footer-tagline">UI/UX Designer crafting modern digital experiences.</p>
+<div class="footer-socials">
+<a href="#">LinkedIn</a>
+<a href="#">Behance</a>
+<a href="#">Dribbble</a>
+<a href="mailto:your@email.com">Email</a>
+</div>
+<p class="footer-copy">© 2026 Ghulam Qadir</p>
 </footer>
-
 
 <!-- MODAL -->
 <div id="projectModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
-    <img id="modalImg">
-    <h3 id="modalTitle"></h3>
-    <p id="modalDesc"></p>
-  </div>
+<div class="modal-content">
+<span class="close" onclick="closeModal()">×</span>
+<img id="modalImg">
+<h3 id="modalTitle"></h3>
+<p id="modalDesc"></p>
+</div>
 </div>
 
 <script>
 function openModal(img,title,desc){
-  document.getElementById("modalImg").src = img;
-  document.getElementById("modalTitle").innerText = title;
-  document.getElementById("modalDesc").innerText = desc;
-  document.getElementById("projectModal").style.display = "flex";
+  modalImg.src=img;
+  modalTitle.innerText=title;
+  modalDesc.innerText=desc;
+  projectModal.style.display="flex";
 }
-
 function closeModal(){
-  document.getElementById("projectModal").style.display = "none";
+  projectModal.style.display="none";
+}
+function slide(id,dir){
+  document.getElementById(id).scrollLeft += dir*320;
 }
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
