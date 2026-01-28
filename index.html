@@ -287,7 +287,7 @@ h2{font-size:36px;margin-bottom:30px;}
   justify-content: center;
 }
 
-.skill-list span {
+/* .skill-list span {
   position: relative;
   display: inline-block;
   padding: 10px 25px;
@@ -321,6 +321,73 @@ h2{font-size:36px;margin-bottom:30px;}
   50% {
     box-shadow: 0 0 18px rgba(99,102,241,0.9), 0 0 25px rgba(34,211,238,0.8);
     border-color: #22d3ee;
+  }
+} */
+
+  .skill-list span {
+  position: relative;
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 15px;
+  color: #e5e7eb;
+  background: rgba(255, 255, 255, 0.05);
+  cursor: default;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.2); /* base subtle border */
+}
+
+/* ===== UI/UX Skills (Clockwise Blue Glow) ===== */
+.uiux span {
+  animation: glowClock 3s infinite;
+}
+
+/* Stagger each UI/UX skill */
+.uiux span:nth-child(1) { animation-delay: 0s; }
+.uiux span:nth-child(2) { animation-delay: 0.6s; }
+.uiux span:nth-child(3) { animation-delay: 1.2s; }
+.uiux span:nth-child(4) { animation-delay: 1.8s; }
+.uiux span:nth-child(5) { animation-delay: 2.4s; }
+
+/* Clockwise blue-cyan glow */
+@keyframes glowClock {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(99,102,241,0.3), 0 0 10px rgba(34,211,238,0.2);
+    border-color: rgba(99,102,241,0.5);
+    transform: rotate(0deg);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(99,102,241,0.9), 0 0 28px rgba(34,211,238,0.8);
+    border-color: #22d3ee;
+    transform: rotate(15deg); /* slight clockwise tilt */
+  }
+}
+
+/* ===== Graphic Design Skills (Anticlockwise Pink-Purple Glow) ===== */
+.graphic span {
+  animation: glowAnti 3s infinite;
+}
+
+/* Stagger each Graphic skill */
+.graphic span:nth-child(1) { animation-delay: 0s; }
+.graphic span:nth-child(2) { animation-delay: 0.6s; }
+.graphic span:nth-child(3) { animation-delay: 1.2s; }
+.graphic span:nth-child(4) { animation-delay: 1.8s; }
+.graphic span:nth-child(5) { animation-delay: 2.4s; }
+.graphic span:nth-child(6) { animation-delay: 3s; }
+
+/* Anticlockwise pink-purple glow */
+@keyframes glowAnti {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(236,72,153,0.3), 0 0 10px rgba(168,85,247,0.2);
+    border-color: rgba(236,72,153,0.5);
+    transform: rotate(0deg);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(236,72,153,0.9), 0 0 28px rgba(168,85,247,0.8);
+    border-color: #ec4899;
+    transform: rotate(-15deg); /* slight anticlockwise tilt */
   }
 }
 
@@ -636,6 +703,7 @@ window.addEventListener("scroll",()=>{
 
 </body>
 </html>
+
 
 
 
