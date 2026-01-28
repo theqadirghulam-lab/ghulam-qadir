@@ -111,13 +111,32 @@ h2{font-size:36px;margin-bottom:40px;}
   z-index:999;
 }
 
-.modal-content{
+/* .modal-content{
   background:#020617;
   padding:20px;
   width:90%;
   max-width:420px;
   border-radius:18px;
+} */
+
+  .modal-content{
+  background:#020617;
+  padding:20px;
+  width:90%;
+  max-width:420px;
+  border-radius:16px;
+  position:relative;
 }
+
+.modal-content::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#6366f1,#22d3ee);
+  z-index:-1;
+}
+
 
 .modal-content img{
   width:100%;
@@ -258,6 +277,7 @@ function closeModal(){
 
 </body>
 </html>
+
 
 
 
