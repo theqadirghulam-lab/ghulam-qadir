@@ -237,6 +237,42 @@ h2{font-size:36px;margin-bottom:30px;}
   display:inline-block;
   text-align:center;
 }
+
+  .skill-list{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+}
+.skill-list span{
+  padding:10px 20px;
+  border-radius:50px;
+  font-weight:500;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  color:#e5e7eb;
+  font-size:15px;
+  transition:all 0.4s ease;
+  cursor:pointer;
+}
+
+.skill-list span:hover{
+  background:linear-gradient(135deg,#6366f1,#22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform:translateY(-5px) scale(1.05);
+}
+
+/* Fade-in reveal animation */
+.skill-list span{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.6s ease;
+}
+.skill-list span.active{
+  opacity:1;
+  transform:translateY(0);
+}
   
 </style>
 </head>
@@ -351,6 +387,37 @@ h2{font-size:36px;margin-bottom:30px;}
 <button class="nav next" onclick="slide('graphic',1)">›</button>
 </div>
 
+</section>
+
+  <!-- ===== SKILLS ===== -->
+<section id="skills" style="padding:80px 20px; max-width:1000px; margin:0 auto; text-align:center;">
+  <h2 class="skills-title" style="font-size:36px; margin-bottom:50px;">My Skills</h2>
+
+  <div class="skill-category">
+    <h3 style="font-size:22px; margin-bottom:20px; color:#22d3ee;">UI / UX Design</h3>
+    <div class="skill-list">
+      <span>Figma</span>
+      <span>Adobe XD</span>
+      <span>Wireframing</span>
+      <span>Prototyping</span>
+      <span>User Research</span>
+      <span>Design Systems</span>
+      <span>Usability Testing</span>
+    </div>
+  </div>
+
+  <div class="skill-category" style="margin-top:40px;">
+    <h3 style="font-size:22px; margin-bottom:20px; color:#22d3ee;">Graphic Design</h3>
+    <div class="skill-list">
+      <span>Photoshop</span>
+      <span>Illustrator</span>
+      <span>Brand Identity</span>
+      <span>Logo Design</span>
+      <span>Banner Design</span>
+      <span>Marketing Collateral</span>
+      <span>Typography</span>
+    </div>
+  </div>
 </section>
 
 <!-- <section id="about">
@@ -501,10 +568,23 @@ function typeText(){
   }
 }
 window.addEventListener("load", ()=>{ setTimeout(typeText,500); });
+
+// Skill reveal on scroll
+const skillItems = document.querySelectorAll(".skill-list span");
+
+window.addEventListener("scroll",()=>{
+  skillItems.forEach((el,index)=>{
+    if(el.getBoundingClientRect().top < window.innerHeight - 50){
+      setTimeout(()=>{el.classList.add("active")}, index*100);
+    }
+  });
+});
+  
 </script>
 
 </body>
 </html>
+
 
 
 
