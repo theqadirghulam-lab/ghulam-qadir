@@ -238,48 +238,46 @@ h2{font-size:36px;margin-bottom:30px;}
   text-align:center;
 }
 
- .skill-list span{
-  padding:10px 20px;
-  border-radius:50px;
-  font-weight:500;
-  background:rgba(255,255,255,0.05);
-  border:2px solid transparent;
-  background-clip: padding-box;
-  position:relative;
-  color:#e5e7eb;
-  font-size:15px;
-  transition:all 0.4s ease;
-  cursor:pointer;
+ .skill-list span {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 15px;
+  color: #e5e7eb;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid transparent;
+  overflow: hidden;
+  margin: 8px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
-.skill-list span::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius:50px;
-  padding:2px;
-  background:linear-gradient(135deg,#6366f1,#22d3ee,#6366f1,#22d3ee);
+.skill-list span::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px; /* border thickness */
+  border-radius: 50px;
+  background: linear-gradient(135deg, #6366f1, #22d3ee, #6366f1, #22d3ee);
   -webkit-mask: 
     linear-gradient(#fff 0 0) content-box, 
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
-  z-index:-1;
-  opacity:0;
-  transition:opacity 0.4s ease;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 0;
 }
 
-.skill-list span:hover::before{
-  opacity:1;
+.skill-list span:hover::before {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
-.skill-list span:hover{
-  transform:translateY(-5px) scale(1.05);
-  color:transparent;
-  background-clip:text;
-  -webkit-background-clip:text;
-  background:linear-gradient(135deg,#6366f1,#22d3ee);
-  -webkit-text-fill-color:transparent;
+.skill-list span:hover {
+  transform: translateY(-4px);
 }
 
   
@@ -593,6 +591,7 @@ window.addEventListener("scroll",()=>{
 
 </body>
 </html>
+
 
 
 
